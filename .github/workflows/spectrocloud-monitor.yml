@@ -6,7 +6,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Every 6 hours
+    - cron: "0 */6 * * *" # Every 6 hours
   workflow_dispatch:
 
 jobs:
@@ -115,6 +115,7 @@ whoisxmlapi: []
 zoomeyeapi:
   - $ZOOMEYE_API_KEY
 EOF
+
       - name: Prepare wildcard list
         run: |
           echo "spectrocloud.com" > wildcards.txt
@@ -142,6 +143,7 @@ EOF
             git clone https://github.com/bing0o/SubEnum.git
             cd SubEnum && chmod +x setup.sh && ./setup.sh && cd ..
           fi
+
           ./SubEnum/subenum.sh -l wildcards.txt -u wayback,crt,abuseipdb,Amass -o "$CUR_DIR/subenum.txt" || true
 
           cat "$CUR_DIR"/*.txt 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]' | sort -u > "$CUR_DIR/candidates.txt"
@@ -170,9 +172,7 @@ EOF
           PREV="data/previous/${ORG}.txt"
           CUR="data/current/${ORG}/live.txt"
           NEW_FILE="data/new/${ORG}-${GITHUB_RUN_ID}.txt"
-
           mkdir -p data/previous data/new
-
           if [ ! -f "$PREV" ]; then touch "$PREV"; fi
 
           comm -13 <(sort "$PREV") <(sort "$CUR") > "$NEW_FILE"
@@ -193,6 +193,7 @@ EOF
           COUNT=${{ steps.compare.outputs.NEW_COUNT }}
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
           ITEMS=$(head -n 15 "$NEW_FILE" | sed -z 's/\n/\\n/g' | sed 's/"/\\"/g')
+
           EMBED=$(jq -n --arg title "🌐 ${COUNT} New Live Subdomains Found" \
             --arg desc "Detected on SpectroCloud / Kairos domains" \
             --arg items "$ITEMS" \
@@ -200,6 +201,7 @@ EOF
               "embeds":[{"title":$title,"description":$desc,"color":5814783,
               "fields":[{"name":"New (First 15)","value":"```'$items'```"}],
               "footer":{"text":"Automated via GitHub Actions"}}]}')
+
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
 
   nuclei:
@@ -234,6 +236,7 @@ EOF
         run: |
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
           REPORT=$(tail -n 15 scans/nuclei-${{ github.run_id }}.txt | sed -z 's/\n/\\n/g')
+
           EMBED=$(jq -n --arg title "🚨 Nuclei Scan Results — SpectroCloud" \
             --arg desc "Top 15 findings on new subdomains" \
             --arg report "$REPORT" \
@@ -241,4 +244,5 @@ EOF
               "embeds":[{"title":$title,"description":$desc,"color":16723712,
               "fields":[{"name":"Findings (Last 15)","value":"```'$report'```"}],
               "footer":{"text":"Automated via GitHub Actions"}}]}')
+
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
