@@ -1,92 +1,143 @@
-name: Subdomain Monitor & Nuclei Scan
+name: SpectroCloud Subdomain Monitor + Nuclei Scanner
+
+permissions:
+  contents: write
+  id-token: write
 
 on:
   schedule:
-    - cron: "0 */6 * * *"   # every 6 hours
+    - cron: "0 */6 * * *"  # Every 6 hours
   workflow_dispatch:
 
+env:
+  ORG: "spectrocloud"
+  WILDCARDS_FILE: "wildcards.txt"
+  KNOWN_FILE: "known_subdomains.txt"
+  TMP_DIR: "tmp"
+  HTTPX_PORTS: "80,443,8080,8000,8888,8443,9443"
+  DISCORD_WEBHOOK_MAIN: ${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}
+  DISCORD_WEBHOOK_ARCHIVE: ${{ secrets.DISCORD_WEBHOOK_ARCHIVE }}
+  PERSONAL_GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+
 jobs:
-  enumerate:
-    name: Subdomain enumeration & probe
+  monitor:
     runs-on: ubuntu-latest
-    outputs:
-      httpx_artifact: ${{ steps.upload-art.outputs.artifact-name }}
-    env:
-      # Wildcards file will be created from this list; change if needed
-      WILDCARDS: |
-        *.spectrocloud.com
-        *.kairos.io
     steps:
-      - name: Checkout repo
+      # -----------------------------
+      # Setup and environment
+      # -----------------------------
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: true
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
 
       - name: Setup Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.21' # change if preferred
+          go-version: '1.22'
 
-      - name: Make scripts executable
+      - name: Install dependencies
         run: |
-          mkdir -p scripts
-          # ensure your script files are present in repo; if not they will be created below
-          chmod +x scripts/enum-and-probe.sh || true
+          sudo apt-get update -y
+          sudo apt-get install -y unzip wget python3-pip
+          go install -v github.com/tomnomnom/assetfinder@latest
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+          go install -v github.com/tomnomnom/anew@latest
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          curl -LO https://github.com/findomain/findomain/releases/latest/download/findomain-linux-i386.zip
+          unzip -o findomain-linux-i386.zip
+          chmod +x findomain && sudo mv findomain /usr/bin/findomain && rm findomain-linux-i386.zip
+          pip install 'httpx[cli]'
 
+          # Install latest httpx binary (avoid conflict with Python httpx)
+          URL=$(curl -s https://api.github.com/repos/projectdiscovery/httpx/releases/latest \
+          | grep "browser_download_url.*linux_amd64.zip" | cut -d '"' -f 4)
+          wget "$URL" -O httpx_latest.zip
+          unzip -o httpx_latest.zip > /dev/null
+          chmod +x httpx && sudo mv httpx /usr/local/bin/httpx-pd && rm -f httpx_latest.zip LICENSE.md README.md
+          echo "[+] httpx-pd installed"
+
+      # -----------------------------
+      # Enumeration + Probing
+      # -----------------------------
       - name: Run enumeration and probe
-        id: enum
         run: |
-          mkdir -p tmp
-          echo "${WILDCARDS}" > tmp/wildcards.txt
-          bash scripts/enum-and-probe.sh tmp/wildcards.txt
+          set -e
+          mkdir -p $TMP_DIR
 
-      - name: Upload results artifact (httpx.txt + scope + all-files)
-        id: upload-art
-        uses: actions/upload-artifact@v4
-        with:
-          name: subdomains-httpx
-          path: |
-            tmp/httpx.txt
-            tmp/scope.txt
-            tmp/all_enumeration_merged.txt
+          echo "*.spectrocloud.com" > $WILDCARDS_FILE
+          echo "*.kairos.io" >> $WILDCARDS_FILE
 
-      - name: Commit known_subdomains changes if any
-        if: steps.enum.outputs.committed != 'false' || always()
-        run: |
-          # enum script already committed, but we run this as a safety no-op.
-          echo "Enumeration job complete."
+          # Subdomain enumeration
+          echo "[*] Running subfinder..."
+          subfinder -all -t 200 -silent -recursive -dL $WILDCARDS_FILE -o $TMP_DIR/subfinder.txt || true
 
-  nuclei_scan:
-    name: Nuclei scanner
-    runs-on: ubuntu-latest
-    needs: enumerate
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+          echo "[*] Running findomain..."
+          findomain -q -f $WILDCARDS_FILE -u $TMP_DIR/findomain.txt || true
 
-      - name: Download artifact (subdomains-httpx)
-        uses: actions/download-artifact@v4
-        with:
-          name: subdomains-httpx
+          echo "[*] Running assetfinder..."
+          cat $WILDCARDS_FILE | assetfinder -subs-only > $TMP_DIR/assetfinder.txt || true
 
-      - name: Setup Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '1.21'
+          echo "[*] Aggregating results..."
+          cat $TMP_DIR/*.txt | sort -u > $TMP_DIR/all_subs.txt
 
-      - name: Make nuclei script executable
-        run: chmod +x scripts/nuclei-scan.sh || true
+          echo "[*] Probing live hosts..."
+          cat $TMP_DIR/all_subs.txt | httpx-pd -ports $HTTPX_PORTS -threads 200 -silent | anew $KNOWN_FILE > $TMP_DIR/httpx.txt
 
+          echo "[*] Live hosts count:"
+          wc -l $TMP_DIR/httpx.txt
+
+          # Avoid same file copy issue
+          cp -f $TMP_DIR/httpx.txt $TMP_DIR/httpx_copy.txt
+
+          # Discord notification (new subdomains)
+          if [ -s "$TMP_DIR/httpx.txt" ]; then
+            echo "[*] Sending results to Discord..."
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{\"content\": \"🌐 New live subdomains found for ${ORG}\n\`\`\`$(cat $TMP_DIR/httpx.txt)\`\`\`\"}" \
+              "$DISCORD_WEBHOOK_MAIN"
+          fi
+
+          # Commit and push updated known_subdomains.txt
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add $KNOWN_FILE
+          git commit -m "chore: update known_subdomains (new discoveries)" || echo "No new subs to commit"
+          git push https://x-access-token:${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/eaboubakr21/SpectroCloudWorkFlow.git HEAD:main
+
+      # -----------------------------
+      # Nuclei Scanning
+      # -----------------------------
       - name: Run nuclei scan
-        env:
-          DISCORD_WEBHOOK_SPECTROCLOUD: ${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}
-          DISCORD_WEBHOOK_ARCHIVE: ${{ secrets.DISCORD_WEBHOOK_ARCHIVE }}
         run: |
-          # nucleus script expects tmp/httpx.txt in workspace (download-artifact places files in workspace)
-          mkdir -p tmp
-          if [ -f httpx.txt ]; then mv httpx.txt tmp/httpx.txt; fi
-          if [ -f subdomains-httpx/httpx.txt ]; then mv subdomains-httpx/httpx.txt tmp/httpx.txt; fi
-          ls -lah tmp || true
-          bash scripts/nuclei-scan.sh tmp/httpx.txt
+          set -e
+          echo "[*] Updating Nuclei templates..."
+          nuclei --update && nuclei -ut
 
+          echo "[*] Running Nuclei scan..."
+          nuclei -t ~/nuclei-templates/http/ \
+            -l $TMP_DIR/httpx_copy.txt \
+            -es info \
+            -mhe 5 \
+            -stats \
+            -H "X-Forwarded-For: 127.0.0.1" \
+            -H "X-Forwarded-Host: 127.0.0.1" \
+            -H "X-Forwarded: 127.0.0.1" \
+            -H "Forwarded-For: 127.0.0.1" \
+            -o $TMP_DIR/nuclei_results.txt || true
 
+          echo "[*] Sending Nuclei findings to Discord..."
+          if [ -s "$TMP_DIR/nuclei_results.txt" ]; then
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{\"content\": \"⚡ Nuclei Scan Results for ${ORG}\n\`\`\`$(cat $TMP_DIR/nuclei_results.txt | head -n 50)\n...\`\`\`\"}" \
+              "$DISCORD_WEBHOOK_MAIN"
+          fi
+
+          echo "[*] Archiving results..."
+          curl -H "Content-Type: application/json" \
+            -X POST \
+            -d "{\"content\": \"📦 Subdomain monitoring cycle completed for ${ORG}.\"}" \
+            "$DISCORD_WEBHOOK_ARCHIVE"
