@@ -78,7 +78,7 @@ jobs:
       - name: Write subfinder provider config
         run: |
           set -eux
-          subfinder
+          mkdir -p ~/.config/subfinder
           cat <<EOF > ~/.config/subfinder/provider-config.yaml
 bevigil:
   - $BEVIGIL_API_KEY
@@ -135,22 +135,17 @@ EOF
           ORG="spectrocloud"
           CUR_DIR="data/current/${ORG}"
           mkdir -p "$CUR_DIR"
-
           subfinder -silent -all -recursive -t 200 -dL wildcards.txt -o "$CUR_DIR/subfinder.txt" || true
           findomain -quiet -f wildcards.txt -oL "$CUR_DIR/findomain.txt" || true
           cat wildcards.txt | xargs -n1 -I {} bash -c "assetfinder --subs-only {} >> $CUR_DIR/assetfinder.txt || true"
-
           if [ -n "$PDCP_API_KEY" ]; then
             chaos -dL wildcards.txt -silent -o "$CUR_DIR/chaos.txt" || true
           fi
-
           if [ ! -d "SubEnum" ]; then
             git clone https://github.com/bing0o/SubEnum.git
             cd SubEnum && chmod +x setup.sh && ./setup.sh && cd ..
           fi
-
           ./SubEnum/subenum.sh -l wildcards.txt -u wayback,crt,abuseipdb,Amass -o "$CUR_DIR/subenum.txt" || true
-
           cat "$CUR_DIR"/*.txt 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]' | sort -u > "$CUR_DIR/candidates.txt"
           echo "CANDIDATES=$CUR_DIR/candidates.txt" >> $GITHUB_OUTPUT
 
@@ -163,11 +158,9 @@ EOF
           LIVE="data/current/${ORG}/live.txt"
           mkdir -p data/current/${ORG}
           touch "$LIVE"
-
           if [ -s "$CUR" ]; then
             sed '/^\s*$/d' "$CUR" | httpx-pd -ports $HTTPX_PORTS -threads 200 -silent -follow-redirects | cut -d ':' -f 1 | sort -u > "$LIVE"
           fi
-
           echo "LIVE=$LIVE" >> $GITHUB_OUTPUT
 
       - name: Compare with previous results
@@ -180,10 +173,8 @@ EOF
           NEW_FILE="data/new/${ORG}-${GITHUB_RUN_ID}.txt"
           mkdir -p data/previous data/new
           if [ ! -f "$PREV" ]; then touch "$PREV"; fi
-
           comm -13 <(sort "$PREV") <(sort "$CUR") > "$NEW_FILE"
           NEW_COUNT=$(wc -l < "$NEW_FILE" || echo 0)
-
           echo "NEW_FILE=$NEW_FILE" >> $GITHUB_OUTPUT
           echo "NEW_COUNT=$NEW_COUNT" >> $GITHUB_OUTPUT
           echo "found=$([ "$NEW_COUNT" -gt 0 ] && echo true || echo false)" >> $GITHUB_OUTPUT
@@ -201,7 +192,6 @@ EOF
           COUNT="${{ steps.compare.outputs.NEW_COUNT }}"
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
           ITEMS=$(head -n 15 "$NEW_FILE" | sed -z 's/\n/\\n/g' | sed 's/"/\\"/g')
-
           EMBED=$(jq -n --arg title "$COUNT New Live Subdomains Found" \
             --arg desc "Detected on SpectroCloud / Kairos domains" \
             --arg items "$ITEMS" \
@@ -209,7 +199,6 @@ EOF
               "embeds":[{"title":$title,"description":$desc,"color":5814783,
               "fields":[{"name":"New (First 15)","value":"```'"$items"'```"}],
               "footer":{"text":"Automated via GitHub Actions"}}]}')
-
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
 
   nuclei:
@@ -248,7 +237,6 @@ EOF
           set -eux
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
           REPORT=$(tail -n 15 scans/nuclei-${{ github.run_id }}.txt | sed -z 's/\n/\\n/g')
-
           EMBED=$(jq -n --arg title "Nuclei Scan Results - SpectroCloud" \
             --arg desc "Top 15 findings on new subdomains" \
             --arg report "$REPORT" \
@@ -256,5 +244,4 @@ EOF
               "embeds":[{"title":$title,"description":$desc,"color":16723712,
               "fields":[{"name":"Findings (Last 15)","value":"```'"$report"'```"}],
               "footer":{"text":"Automated via GitHub Actions"}}]}')
-
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
