@@ -1,0 +1,92 @@
+name: Subdomain Monitor & Nuclei Scan
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+
+jobs:
+  enumerate:
+    name: Subdomain enumeration & probe
+    runs-on: ubuntu-latest
+    outputs:
+      httpx_artifact: ${{ steps.upload-art.outputs.artifact-name }}
+    env:
+      # Wildcards file will be created from this list; change if needed
+      WILDCARDS: |
+        *.spectrocloud.com
+        *.kairos.io
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21' # change if preferred
+
+      - name: Make scripts executable
+        run: |
+          mkdir -p scripts
+          # ensure your script files are present in repo; if not they will be created below
+          chmod +x scripts/enum-and-probe.sh || true
+
+      - name: Run enumeration and probe
+        id: enum
+        run: |
+          mkdir -p tmp
+          echo "${WILDCARDS}" > tmp/wildcards.txt
+          bash scripts/enum-and-probe.sh tmp/wildcards.txt
+
+      - name: Upload results artifact (httpx.txt + scope + all-files)
+        id: upload-art
+        uses: actions/upload-artifact@v4
+        with:
+          name: subdomains-httpx
+          path: |
+            tmp/httpx.txt
+            tmp/scope.txt
+            tmp/all_enumeration_merged.txt
+
+      - name: Commit known_subdomains changes if any
+        if: steps.enum.outputs.committed != 'false' || always()
+        run: |
+          # enum script already committed, but we run this as a safety no-op.
+          echo "Enumeration job complete."
+
+  nuclei_scan:
+    name: Nuclei scanner
+    runs-on: ubuntu-latest
+    needs: enumerate
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download artifact (subdomains-httpx)
+        uses: actions/download-artifact@v4
+        with:
+          name: subdomains-httpx
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Make nuclei script executable
+        run: chmod +x scripts/nuclei-scan.sh || true
+
+      - name: Run nuclei scan
+        env:
+          DISCORD_WEBHOOK_SPECTROCLOUD: ${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}
+          DISCORD_WEBHOOK_ARCHIVE: ${{ secrets.DISCORD_WEBHOOK_ARCHIVE }}
+        run: |
+          # nucleus script expects tmp/httpx.txt in workspace (download-artifact places files in workspace)
+          mkdir -p tmp
+          if [ -f httpx.txt ]; then mv httpx.txt tmp/httpx.txt; fi
+          if [ -f subdomains-httpx/httpx.txt ]; then mv subdomains-httpx/httpx.txt tmp/httpx.txt; fi
+          ls -lah tmp || true
+          bash scripts/nuclei-scan.sh tmp/httpx.txt
+
+
