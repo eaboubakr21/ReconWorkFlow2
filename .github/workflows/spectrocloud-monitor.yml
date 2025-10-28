@@ -73,7 +73,7 @@ jobs:
 
       - name: Write subfinder provider config
         run: |
-          mkdir -p ~/.config/subfinder
+          subfinder
           cat <<EOF > ~/.config/subfinder/provider-config.yaml
 bevigil: [${{BEVIGIL_API_KEY}}]
 bufferover: []
