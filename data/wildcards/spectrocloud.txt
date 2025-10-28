@@ -1,0 +1,2 @@
+*.spectrocloud.com
+*.kairos.io

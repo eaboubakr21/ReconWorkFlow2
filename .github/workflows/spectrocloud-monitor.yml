@@ -1,0 +1,367 @@
+name: Spectrocloud Subdomain & Nuclei Monitor
+
+permissions:
+  contents: write        # allows pushing commits, updating files
+  actions: read          # allows downloading artifacts from other jobs
+
+on:
+  # Schedule for monitoring (every 12 hours)
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:     # allow manual runs
+
+jobs:
+  # --- JOB 1: Subdomain Discovery and Monitoring ---
+  monitor:
+    runs-on: ubuntu-latest
+    env:
+      # default ports for httpx-pd
+      HTTPX_PORTS: "80,443,8080,8000,8888,8443,9443"
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Ensure directories exist
+        run: |
+          mkdir -p data/wildcards data/current data/previous data/new
+
+      - name: Copy wildcards into working file
+        run: |
+          cp data/wildcards/spectrocloud.txt wildcards.txt
+
+      - name: Install OS deps & unzip tools
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y unzip wget python3-pip jq
+
+      - name: Setup Go (for projectdiscovery & tomnomnom tools)
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.21"
+
+      - name: Install required Go tools and pip httpx
+        run: |
+          export PATH=$PATH:$HOME/go/bin
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+          go install -v github.com/tomnomnom/anew@latest
+          go install -v github.com/tomnomnom/assetfinder@latest
+          pip3 install 'httpx[cli]' || true
+
+      - name: Install findomain (binary)
+        run: |
+          curl -L -o findomain.zip "https://github.com/findomain/findomain/releases/latest/download/findomain-linux-i386.zip"
+          unzip -o findomain.zip
+          chmod +x findomain
+          sudo mv findomain /usr/bin/findomain || sudo mv findomain /usr/local/bin/findomain
+          rm -f findomain.zip
+
+      - name: Install httpx (ProjectDiscovery linux_amd64) and move to httpx-pd
+        run: |
+          echo "[*] Downloading latest httpx release..."
+          URL=$(curl -s https://api.github.com/repos/projectdiscovery/httpx/releases/latest \
+            | grep "browser_download_url.*linux_amd64.zip" \
+            | cut -d '"' -f 4)
+          wget -q "$URL" -O httpx_latest.zip
+          unzip -o httpx_latest.zip
+          chmod +x httpx
+          sudo mv httpx /usr/local/bin/httpx-pd
+          rm -f httpx_latest.zip LICENSE.md README.md 2>/dev/null || true
+          echo "[+] httpx-pd ready"
+
+      - name: Export PDCP API key from secrets
+        run: |
+          if [ -n "${{ secrets.PDCP_API_KEY }}" ]; then
+            echo "PDCP_API_KEY=${{ secrets.PDCP_API_KEY }}" >> $GITHUB_ENV
+            echo "PDCP_API_KEY exported from secrets"
+          else
+            echo "PDCP_API_KEY not set — skipping chaos client"
+          fi
+
+      - name: Configure Subfinder with provider config
+        run: |
+          mkdir -p ~/.config/subfinder
+          cat > ~/.config/subfinder/provider-config.yaml << 'CONFIG_EOF'
+          bevigil: [9Ecw5mPHWSrzwf4S]
+          bufferover: []
+          builtwith: []
+          c99: []
+          censys: []
+          certspotter: []
+          chaos: []
+          chinaz: []
+          digitalyama: []
+          dnsdb: []
+          dnsdumpster: []
+          dnsrepo: []
+          facebook: []
+          fofa: [64647a03da7d2f64ab38be9181531ddc]
+          fullhunt: []
+          github: [${{ secrets.GITHUB_TOKEN }}]
+          hunter: []
+          intelx: [9df61df0-84f7-4dc7-b34c-8ccfb8646ace]
+          leakix: []
+          netlas: []
+          pugrecon: []
+          quake: []
+          redhuntlabs: []
+          robtex: []
+          rsecloud: []
+          securitytrails: [xe5cwRHJYs_2eAl6rPRLf7nWyR972XHQ]
+          shodan: [3ba027yOKTQrFQzRXLhwY3HDndmntwZq]
+          threatbook: []
+          virustotal: [5475e19dc7bf2aa2f58ea502c9b20f98545dd9f361d32cbfbc9c1625034b2740]
+          whoisxmlapi: []
+          zoomeyeapi: [9a87D101-e212-eFA0E-146b-15EaC1eb71c]
+          CONFIG_EOF
+
+      - name: Run subdomain enumeration pipeline
+        id: enum
+        run: |
+              set -eux
+              ORG="spectrocloud"
+              TIMESTAMP=$(date -u +"%Y%m%dT%H%M%SZ")
+              CUR_DIR="data/current/${ORG}"
+              mkdir -p "$CUR_DIR"
+    
+              # run subfinder
+              subfinder -silent -all -recursive -t 200 -dL wildcards.txt -o "$CUR_DIR/subfinder.txt" || true
+
+              # findomain
+              findomain -quiet -f wildcards.txt -oL "$CUR_DIR/findomain.txt" || true
+
+              # assetfinder
+              cat wildcards.txt | xargs -n1 -I {} bash -c "assetfinder --subs-only {} >> $CUR_DIR/assetfinder.txt || true"
+
+              # run chaos
+              if [ -n "$PDCP_API_KEY" ]; then
+                chaos -dL wildcards.txt -silent -o "$CUR_DIR/chaos.txt" || true
+              fi
+  
+              # subenum (run after chaos)
+              if [ ! -d "SubEnum" ]; then
+                git clone https://github.com/bing0o/SubEnum.git
+                cd SubEnum
+                chmod +x setup.sh
+                ./setup.sh
+                cd ..
+              fi
+              ./SubEnum/subenum.sh -l wildcards.txt -u wayback,crt,abuseipdb,Amass -o "$CUR_DIR/subenum.txt" || true
+
+              # merge & dedupe results
+              cat "$CUR_DIR"/*.txt 2>/dev/null | sed 's/^[[:space:]]*//;s/[[:space:]]*$//' | tr '[:upper:]' '[:lower:]' | sort -u > "$CUR_DIR/candidates.txt" || true
+
+              echo "candidates saved to $CUR_DIR/candidates.txt"
+              wc -l "$CUR_DIR/candidates.txt" || true
+              echo "CANDIDATES=$CUR_DIR/candidates.txt" >> $GITHUB_OUTPUT
+
+      - name: Probe live subdomains and de-duplicate
+        id: probe
+        run: |
+          set -eux
+          ORG="spectrocloud"
+          CUR="data/current/${ORG}/candidates.txt"
+          LIVE="data/current/${ORG}/live.txt"
+          touch $LIVE
+          if [ -s "$CUR" ]; then
+            # Run httpx, then cut the port, then sort and unique to get only hostnames
+            cat "$CUR" | sed '/^\s*$/d' | httpx-pd -ports $HTTPX_PORTS -threads 200 -silent -follow-redirects | cut -d ':' -f 1 | sort -u > "$LIVE" || true
+          else
+            echo "[!] no candidates"
+          fi
+          echo "LIVE=$LIVE" >> $GITHUB_OUTPUT
+          wc -l "$LIVE" || true
+
+      - name: Compare with previous and generate new list
+        id: compare
+        run: |
+          set -eux
+          ORG="spectrocloud"
+          PREV="data/previous/${ORG}.txt"
+          CUR="data/current/${ORG}/live.txt"
+          NEW_FILE="data/new/${ORG}-${GITHUB_RUN_ID}.txt"
+          
+          # Create previous file if it doesn't exist
+          if [ ! -f "$PREV" ]; then
+            touch "$PREV"
+          fi
+          
+          # differences: lines in CUR but not in PREV
+          comm -13 <(sort "$PREV") <(sort "$CUR") > "$NEW_FILE" || true
+          # cleanup blank lines
+          sed -i '/^\s*$/d' "$NEW_FILE" || true
+          NEW_COUNT=$(wc -l < "$NEW_FILE" || echo 0)
+          echo "NEW_FILE=$NEW_FILE" >> $GITHUB_OUTPUT
+          echo "NEW_COUNT=$NEW_COUNT" >> $GITHUB_OUTPUT
+          echo "NEW_COUNT=$NEW_COUNT"
+          if [ "$NEW_COUNT" -eq 0 ]; then
+            echo "No new live subdomains found."
+          else
+            echo "Found $NEW_COUNT new live subdomains"
+            head -n 50 "$NEW_FILE" || true
+          fi
+
+      - name: Commit new results & update previous (if any)
+        run: |
+          set -eux
+          ORG="spectrocloud"
+          PREV="data/previous/${ORG}.txt"
+          CUR="data/current/${ORG}/live.txt"
+          NEW_FILE="data/new/${ORG}-${GITHUB_RUN_ID}.txt"
+          git config user.name "subdomain-bot"
+          git config user.email "bot@example.com"
+          
+          # Pull latest changes before making our own
+          git pull --rebase origin main || true
+          
+          # Always update the previous file with current results to prevent re-alerting
+          cp "$CUR" "$PREV"
+          git add "$PREV"
+          
+          # Only add and commit new file if there are new subdomains
+          if [ -s "$NEW_FILE" ]; then
+            git add "$NEW_FILE"
+            git commit -m "feat: Update ${ORG} live subdomains with ${NEW_COUNT} new - run ${GITHUB_RUN_ID}" || true
+          else
+            # If no new subs, just commit the updated previous file
+            git commit -m "chore: Update ${ORG} previous list - run ${GITHUB_RUN_ID}" || true
+          fi
+          git push || echo "Push failed; ensure repository has write permissions for the action"
+
+      - name: Post new subdomains to Discord (embed, batched)
+        if: steps.compare.outputs.NEW_COUNT != '' && steps.compare.outputs.NEW_COUNT != '0'
+        run: |
+          set -eux
+          ORG="spectrocloud"
+          NEW_FILE="${{ steps.compare.outputs.NEW_FILE }}"
+          COUNT=${{ steps.compare.outputs.NEW_COUNT }}
+          WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
+          
+          # build items (limit to 15)
+          ITEMS_TEXT=$(head -n 15 "$NEW_FILE" | sed -z 's/\n/\\n/g' | sed 's/"/\\"/g')
+          DESCRIPTION="New live subdomains: ${COUNT}. Showing first 15. See repo for full list."
+          EMBED=$(jq -n --arg title "🚨 New live subdomains — ${ORG} (${COUNT} new)" \
+                --arg desc "$DESCRIPTION" \
+                --arg items "$ITEMS_TEXT" \
+                '{
+                  "embeds":[
+                    {
+                      "title":$title,
+                      "description":$desc,
+                      "color": 16711680, # Red color
+                      "fields":[ {"name":"New (first 15)","value":"```'$items'```","inline":false} ],
+                      "footer":{"text":"Run via GitHub Actions"} 
+                    }
+                  ]
+                }')
+          # simple rate-limit backoff (avoid bursts)
+          sleep $(( (RANDOM % 3) + 1 ))
+          curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK" || echo "Discord post failed"
+
+      - name: Upload new subdomains as artifact for Nuclei job
+        if: steps.compare.outputs.NEW_COUNT != '' && steps.compare.outputs.NEW_COUNT != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-subs-spectrocloud
+          path: ${{ steps.compare.outputs.NEW_FILE }}
+          retention-days: 1 # Artifacts are only needed for 12 hours
+
+  # --- JOB 2: Nuclei Vulnerability Scan ---
+  nuclei-scan:
+    # This job runs on a separate 12-hour schedule
+    runs-on: ubuntu-latest
+    # It depends on the 'monitor' job having completed successfully
+    needs: monitor
+    if: github.event_name == 'schedule' # Only run on scheduled triggers, not manual dispatch
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Download new subdomains artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: new-subs-spectrocloud
+          path: ./
+        continue-on-error: true # Continue even if no new subdomains were found
+
+      - name: Install Nuclei
+        run: |
+          echo "[*] Downloading latest Nuclei release..."
+          URL=$(curl -s https://api.github.com/repos/projectdiscovery/nuclei/releases/latest \
+            | grep "browser_download_url.*linux_amd64.zip" \
+            | cut -d '"' -f 4)
+          wget -q "$URL" -O nuclei_latest.zip
+          unzip -o nuclei_latest.zip
+          chmod +x nuclei
+          sudo mv nuclei /usr/local/bin/nuclei
+          rm -f nuclei_latest.zip LICENSE.md README.md 2>/dev/null || true
+          echo "[+] Nuclei ready"
+
+      - name: Run Nuclei on new subdomains
+        id: nuclei_run
+        run: |
+          # Check if the artifact file exists
+          if [ ! -f "new-spectrocloud-${{ github.run_id }}.txt" ]; then
+            echo "No new subdomains found for spectrocloud in the last run. Skipping Nuclei scan."
+            echo "nuclei_results_file=/dev/null" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          INPUT_FILE="new-spectrocloud-${{ github.run_id }}.txt"
+          OUTPUT_FILE="nuclei-results-spectrocloud.txt"
+          
+          echo "[*] Updating Nuclei templates..."
+          nuclei --update -silent
+          
+          echo "[*] Running Nuclei scan on new subdomains for spectrocloud..."
+          nuclei -t ~/nuclei-templates/http/ -l "$INPUT_FILE" -es info -mhe 5 -stats -silent \
+            -H "X-Forwarded-For: 127.0.0.1" \
+            -H "X-Forwarded-Host: 127.0.0.1" \
+            -H "X-Forwarded: 127.0.0.1" \
+            -H "Forwarded-For: 127.0.0.1" \
+            -o "$OUTPUT_FILE"
+          
+          echo "nuclei_results_file=$OUTPUT_FILE" >> $GITHUB_OUTPUT
+          echo "Nuclei scan completed. Results saved to $OUTPUT_FILE"
+
+      - name: Send Nuclei results to Discord
+        if: steps.nuclei_run.outputs.nuclei_results_file != '/dev/null'
+        run: |
+          set -eux
+          ORG="spectrocloud"
+          RESULTS_FILE="${{ steps.nuclei_run.outputs.nuclei_results_file }}"
+          
+          # Check if the results file exists and is not empty
+          if [ ! -s "$RESULTS_FILE" ]; then
+            echo "Nuclei results file is empty or does not exist. Skipping Discord notification."
+            exit 0
+          fi
+          
+          WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
+
+          # Read results and escape for JSON
+          RESULTS_TEXT=$(head -n 20 "$RESULTS_FILE" | sed -z 's/\n/\\n/g' | sed 's/"/\\"/g')
+          VULN_COUNT=$(wc -l < "$RESULTS_FILE" || echo 0)
+          
+          DESCRIPTION="Nuclei found ${VULN_COUNT} potential issues on new subdomains. Showing first 20."
+          EMBED=$(jq -n --arg title "🛡️ Nuclei Scan Results — ${ORG}" \
+                --arg desc "$DESCRIPTION" \
+                --arg results "$RESULTS_TEXT" \
+                '{
+                  "embeds": [
+                    {
+                      "title": $title,
+                      "description": $desc,
+                      "color": 15105570, # Orange color
+                      "fields": [{"name": "Findings (first 20)", "value": "```'$results'```", "inline": false}],
+                      "footer": {"text": "Run via GitHub Actions"}
+                    }
+                  ]
+                }')
+          sleep $(( (RANDOM % 3) + 1 ))
+          curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK" || echo "Discord post failed"
