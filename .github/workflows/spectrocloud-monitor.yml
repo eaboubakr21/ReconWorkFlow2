@@ -33,6 +33,7 @@ jobs:
 
       - name: Install required Go tools and pip httpx
         run: |
+          set -eux
           export PATH=$PATH:$HOME/go/bin
           go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
           go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
@@ -42,6 +43,7 @@ jobs:
 
       - name: Install findomain (binary)
         run: |
+          set -eux
           curl -L -o findomain.zip "https://github.com/findomain/findomain/releases/latest/download/findomain-linux-i386.zip"
           unzip -o findomain.zip
           chmod +x findomain
@@ -50,17 +52,19 @@ jobs:
 
       - name: Install httpx (ProjectDiscovery linux_amd64)
         run: |
-          echo "[*] Downloading latest httpx release..."
+          set -eux
+          echo "Downloading latest httpx release..."
           URL=$(curl -s https://api.github.com/repos/projectdiscovery/httpx/releases/latest | grep "browser_download_url.*linux_amd64.zip" | cut -d '"' -f 4)
           wget -q "$URL" -O httpx_latest.zip
           unzip -o httpx_latest.zip
           chmod +x httpx
           sudo mv httpx /usr/local/bin/httpx-pd
           rm -f httpx_latest.zip LICENSE.md README.md 2>/dev/null || true
-          echo "[+] httpx-pd ready"
+          echo "httpx-pd ready"
 
       - name: Export API Keys to environment
         run: |
+          set -eux
           echo "GITHUB_TOKEN=${{ secrets.SUBFINDER_GITHUB_TOKEN }}" >> $GITHUB_ENV
           echo "BEVIGIL_API_KEY=${{ secrets.BEVIGIL_API_KEY }}" >> $GITHUB_ENV
           echo "FOFA_API_KEY=${{ secrets.FOFA_API_KEY }}" >> $GITHUB_ENV
@@ -73,7 +77,8 @@ jobs:
 
       - name: Write subfinder provider config
         run: |
-          mkdir -p ~/.config/subfinder
+          set -eux
+          subfinder
           cat <<EOF > ~/.config/subfinder/provider-config.yaml
 bevigil:
   - $BEVIGIL_API_KEY
@@ -118,6 +123,7 @@ EOF
 
       - name: Prepare wildcard list
         run: |
+          set -eux
           echo "spectrocloud.com" > wildcards.txt
           echo "kairos.io" >> wildcards.txt
           cat wildcards.txt
@@ -127,7 +133,6 @@ EOF
         run: |
           set -eux
           ORG="spectrocloud"
-          TIMESTAMP=$(date -u +"%Y%m%dT%H%M%SZ")
           CUR_DIR="data/current/${ORG}"
           mkdir -p "$CUR_DIR"
 
@@ -156,10 +161,11 @@ EOF
           ORG="spectrocloud"
           CUR="data/current/${ORG}/candidates.txt"
           LIVE="data/current/${ORG}/live.txt"
-          touch $LIVE
+          mkdir -p data/current/${ORG}
+          touch "$LIVE"
 
           if [ -s "$CUR" ]; then
-            cat "$CUR" | sed '/^\s*$/d' | httpx-pd -ports $HTTPX_PORTS -threads 200 -silent -follow-redirects | cut -d ':' -f 1 | sort -u > "$LIVE"
+            sed '/^\s*$/d' "$CUR" | httpx-pd -ports $HTTPX_PORTS -threads 200 -silent -follow-redirects | cut -d ':' -f 1 | sort -u > "$LIVE"
           fi
 
           echo "LIVE=$LIVE" >> $GITHUB_OUTPUT
@@ -184,22 +190,24 @@ EOF
 
       - name: Update previous results
         run: |
+          set -eux
           cp "data/current/${ORG}/live.txt" "data/previous/${ORG}.txt"
 
       - name: Discord Notify - New Subdomains
         if: ${{ steps.compare.outputs.NEW_COUNT > 0 }}
         run: |
+          set -eux
           NEW_FILE="${{ steps.compare.outputs.NEW_FILE }}"
-          COUNT=${{ steps.compare.outputs.NEW_COUNT }}
+          COUNT="${{ steps.compare.outputs.NEW_COUNT }}"
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
           ITEMS=$(head -n 15 "$NEW_FILE" | sed -z 's/\n/\\n/g' | sed 's/"/\\"/g')
 
-          EMBED=$(jq -n --arg title "🌐 ${COUNT} New Live Subdomains Found" \
+          EMBED=$(jq -n --arg title "$COUNT New Live Subdomains Found" \
             --arg desc "Detected on SpectroCloud / Kairos domains" \
             --arg items "$ITEMS" \
             '{
               "embeds":[{"title":$title,"description":$desc,"color":5814783,
-              "fields":[{"name":"New (First 15)","value":"```'$items'```"}],
+              "fields":[{"name":"New (First 15)","value":"```'"$items"'```"}],
               "footer":{"text":"Automated via GitHub Actions"}}]}')
 
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
@@ -219,10 +227,13 @@ EOF
           go-version: "1.22"
 
       - name: Install Nuclei
-        run: go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+        run: |
+          set -eux
+          go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
 
       - name: Run Nuclei on new subdomains
         run: |
+          set -eux
           NEW_FILE="${{ needs.monitor.outputs.new_file_path }}"
           mkdir -p scans
           nuclei -t ~/nuclei-templates/http -l "$NEW_FILE" -es info -mhe 5 -stats \
@@ -234,15 +245,16 @@ EOF
 
       - name: Discord Notify - Nuclei Results
         run: |
+          set -eux
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
           REPORT=$(tail -n 15 scans/nuclei-${{ github.run_id }}.txt | sed -z 's/\n/\\n/g')
 
-          EMBED=$(jq -n --arg title "🚨 Nuclei Scan Results — SpectroCloud" \
+          EMBED=$(jq -n --arg title "Nuclei Scan Results - SpectroCloud" \
             --arg desc "Top 15 findings on new subdomains" \
             --arg report "$REPORT" \
             '{
               "embeds":[{"title":$title,"description":$desc,"color":16723712,
-              "fields":[{"name":"Findings (Last 15)","value":"```'$report'```"}],
+              "fields":[{"name":"Findings (Last 15)","value":"```'"$report"'```"}],
               "footer":{"text":"Automated via GitHub Actions"}}]}')
 
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
