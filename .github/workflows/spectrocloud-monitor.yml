@@ -74,16 +74,16 @@ jobs:
       - name: Write subfinder provider config
         run: |
           mkdir -p ~/.config/subfinder
-          cat <<'EOF' > ~/.config/subfinder/provider-config.yaml
+          cat <<EOF > ~/.config/subfinder/provider-config.yaml
 bevigil:
-  - ${{ env.BEVIGIL_API_KEY }}
+  - $BEVIGIL_API_KEY
 bufferover: []
 builtwith: []
 c99: []
 censys: []
 certspotter: []
 chaos:
-  - ${{ env.PDCP_API_KEY }}
+  - $PDCP_API_KEY
 chinaz: []
 digitalyama: []
 dnsdb: []
@@ -91,12 +91,12 @@ dnsdumpster: []
 dnsrepo: []
 facebook: []
 fofa:
-  - ${{ env.FOFA_API_KEY }}
+  - $FOFA_API_KEY
 fullhunt: []
 github: []
 hunter: []
 intelx:
-  - ${{ env.INTELX_API_KEY }}
+  - $INTELX_API_KEY
 leakix: []
 netlas: []
 pugrecon: []
@@ -105,17 +105,16 @@ redhuntlabs: []
 robtex: []
 rsecloud: []
 securitytrails:
-  - ${{ env.SECURITYTRAILS_API_KEY }}
+  - $SECURITYTRAILS_API_KEY
 shodan:
-  - ${{ env.SHODAN_API_KEY }}
+  - $SHODAN_API_KEY
 threatbook: []
 virustotal:
-  - ${{ env.VIRUSTOTAL_API_KEY }}
+  - $VIRUSTOTAL_API_KEY
 whoisxmlapi: []
 zoomeyeapi:
-  - ${{ env.ZOOMEYE_API_KEY }}
+  - $ZOOMEYE_API_KEY
 EOF
-
       - name: Prepare wildcard list
         run: |
           echo "spectrocloud.com" > wildcards.txt
