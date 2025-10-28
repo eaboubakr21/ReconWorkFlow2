@@ -152,3 +152,7 @@ http://zot-debug.palette-adv.spectrocloud.com
 https://zot-debug.palette-adv.spectrocloud.com
 http://zot-nage.palette-adv.spectrocloud.com:443
 http://zot-nage.palette-adv.spectrocloud.com
+http://version-3-4.legacy.docs.spectrocloud.com:443
+http://version-4-2.legacy.docs.spectrocloud.com:443
+https://zot-nage.palette-adv.spectrocloud.com
+http://version-4-1.legacy.docs.spectrocloud.com:443
