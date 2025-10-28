@@ -191,14 +191,24 @@ EOF
           NEW_FILE="${{ steps.compare.outputs.NEW_FILE }}"
           COUNT="${{ steps.compare.outputs.NEW_COUNT }}"
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
-          ITEMS=$(head -n 15 "$NEW_FILE" | sed -z 's/\n/\\n/g' | sed 's/"/\\"/g')
-          EMBED=$(jq -n --arg title "$COUNT New Live Subdomains Found" \
+          ITEMS=$(head -n 15 "$NEW_FILE" | sed 's/"/\\"/g' | tr '\n' ',' | sed 's/,/, /g')
+          EMBED=$(jq -n \
+            --arg title "$COUNT New Live Subdomains Found" \
             --arg desc "Detected on SpectroCloud / Kairos domains" \
             --arg items "$ITEMS" \
             '{
-              "embeds":[{"title":$title,"description":$desc,"color":5814783,
-              "fields":[{"name":"New (First 15)","value":"```'"$items"'```"}],
-              "footer":{"text":"Automated via GitHub Actions"}}]}')
+              "embeds": [{
+                "title": $title,
+                "description": $desc,
+                "color": 5814783,
+                "fields": [{
+                  "name": "New Subdomains (First 15)",
+                  "value": "```\($items)```",
+                  "inline": false
+                }],
+                "footer": {"text": "Automated via GitHub Actions"}
+              }]
+            }')
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
 
   nuclei:
@@ -236,12 +246,26 @@ EOF
         run: |
           set -eux
           WEBHOOK="${{ secrets.DISCORD_WEBHOOK_SPECTROCLOUD }}"
-          REPORT=$(tail -n 15 scans/nuclei-${{ github.run_id }}.txt | sed -z 's/\n/\\n/g')
-          EMBED=$(jq -n --arg title "Nuclei Scan Results - SpectroCloud" \
-            --arg desc "Top 15 findings on new subdomains" \
+          if [ -f "scans/nuclei-${{ github.run_id }}.txt" ]; then
+            REPORT=$(tail -n 15 "scans/nuclei-${{ github.run_id }}.txt" | sed 's/"/\\"/g' | tr '\n' ',' | sed 's/,/, /g')
+          else
+            REPORT="No vulnerabilities found"
+          fi
+          EMBED=$(jq -n \
+            --arg title "Nuclei Scan Results - SpectroCloud" \
+            --arg desc "Findings on new subdomains" \
             --arg report "$REPORT" \
             '{
-              "embeds":[{"title":$title,"description":$desc,"color":16723712,
-              "fields":[{"name":"Findings (Last 15)","value":"```'"$report"'```"}],
-              "footer":{"text":"Automated via GitHub Actions"}}]}')
+              "embeds": [{
+                "title": $title,
+                "description": $desc,
+                "color": 16723712,
+                "fields": [{
+                  "name": "Findings (Last 15)",
+                  "value": "```\($report)```",
+                  "inline": false
+                }],
+                "footer": {"text": "Automated via GitHub Actions"}
+              }]
+            }')
           curl -s -H "Content-Type: application/json" -X POST -d "$EMBED" "$WEBHOOK"
