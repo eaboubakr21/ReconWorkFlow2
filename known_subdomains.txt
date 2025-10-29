@@ -156,3 +156,5 @@ http://version-3-4.legacy.docs.spectrocloud.com:443
 http://version-4-2.legacy.docs.spectrocloud.com:443
 https://zot-nage.palette-adv.spectrocloud.com
 http://version-4-1.legacy.docs.spectrocloud.com:443
+https://ok.spectrocloud.com
+http://www.kairos.io:443
