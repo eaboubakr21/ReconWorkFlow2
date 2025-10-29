@@ -150,3 +150,11 @@ https://zot-tgdebug.palette-adv.spectrocloud.com
 http://version-4-2.legacy.docs.spectrocloud.com
 http://webinars.spectrocloud.com:8080
 http://webinars.spectrocloud.com
+http://dashboard.spectrocloud.com:443
+http://packages.kairos.io
+https://packages.kairos.io
+http://version-3-4.legacy.docs.spectrocloud.com
+https://version-4-0.legacy.docs.spectrocloud.com
+http://version-4-4.legacy.docs.spectrocloud.com:443
+http://version-4-3.legacy.docs.spectrocloud.com:443
+http://zot-debug.palette-adv.spectrocloud.com:443
