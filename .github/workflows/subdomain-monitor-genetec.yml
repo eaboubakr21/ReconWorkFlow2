@@ -1,0 +1,113 @@
+name: Genetec Subdomain Monitor + Nuclei Scanner
+
+permissions:
+  contents: write
+  id-token: write
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+env:
+  ORG: "genetec"
+  BASE_DIR: "genetec"
+  WILDCARDS_FILE: "genetec/wildcards.txt"
+  KNOWN_FILE: "genetec/known_subdomains.txt"
+  TMP_DIR: "genetec/tmp"
+  HTTPX_PORTS: "80,443,8080,8000,8888,8443,9443"
+  DISCORD_WEBHOOK_MAIN: ${{ secrets.DISCORD_WEBHOOK_GENETEC }}
+  DISCORD_WEBHOOK_ARCHIVE: ${{ secrets.DISCORD_WEBHOOK_ARCHIVE }}
+  PERSONAL_GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y unzip wget python3-pip
+          go install -v github.com/tomnomnom/assetfinder@latest
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          go install -v github.com/projectdiscovery/chaos-client/cmd/chaos@latest
+          go install -v github.com/tomnomnom/anew@latest
+          go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+          curl -LO https://github.com/findomain/findomain/releases/latest/download/findomain-linux-i386.zip
+          unzip -o findomain-linux-i386.zip
+          chmod +x findomain && sudo mv findomain /usr/bin/findomain && rm findomain-linux-i386.zip
+          pip install 'httpx[cli]'
+
+          URL=$(curl -s https://api.github.com/repos/projectdiscovery/httpx/releases/latest \
+          | grep "browser_download_url.*linux_amd64.zip" | cut -d '"' -f 4)
+          wget "$URL" -O httpx_latest.zip
+          unzip -o httpx_latest.zip > /dev/null
+          chmod +x httpx && sudo mv httpx /usr/local/bin/httpx-pd && rm -f httpx_latest.zip LICENSE.md README.md
+
+      - name: Run enumeration and probe
+        run: |
+          set -e
+          mkdir -p $TMP_DIR
+
+          echo "genetec.com" > $WILDCARDS_FILE
+          echo "genetec.cloud" >> $WILDCARDS_FILE
+
+          echo "[*] Running subfinder..."
+          subfinder -all -t 200 -silent -recursive -dL $WILDCARDS_FILE -o $TMP_DIR/subfinder.txt || true
+
+          echo "[*] Running findomain..."
+          findomain -q -f $WILDCARDS_FILE -u $TMP_DIR/findomain.txt || true
+
+          echo "[*] Running assetfinder..."
+          cat $WILDCARDS_FILE | assetfinder -subs-only > $TMP_DIR/assetfinder.txt || true
+
+          echo "[*] Aggregating results..."
+          cat $TMP_DIR/*.txt | sort -u > $TMP_DIR/all_subs.txt
+
+          echo "[*] Probing live hosts..."
+          cat $TMP_DIR/all_subs.txt | httpx-pd -ports $HTTPX_PORTS -threads 200 -silent | anew $KNOWN_FILE > $TMP_DIR/new_httpx.txt
+
+          if [ -s "$TMP_DIR/new_httpx.txt" ]; then
+            echo "[*] Sending results to Discord..."
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{\"content\": \"🌐 New live subdomains found for ${ORG}\n\`\`\`$(cat $TMP_DIR/new_httpx.txt)\`\`\`\"}" \
+              "$DISCORD_WEBHOOK_MAIN"
+          fi
+
+          echo "[*] Commit updated known_subdomains.txt"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add $KNOWN_FILE
+          git commit -m "chore: update known_subdomains (${ORG})" || echo "No new subs to commit"
+          git push https://x-access-token:${{ secrets.PERSONAL_GITHUB_TOKEN }}@github.com/eaboubakr21/ReconWorkFlow2.git HEAD:main
+
+      - name: Run nuclei scan on new subs only
+        run: |
+          set -e
+          nuclei --update && nuclei -ut
+          nuclei -t ~/nuclei-templates/http/ \
+            -l $TMP_DIR/new_httpx.txt \
+            -es info \
+            -mhe 5 \
+            -stats \
+            -H "X-Forwarded-For: 127.0.0.1" \
+            -o $TMP_DIR/nuclei_results.txt || true
+
+          if [ -s "$TMP_DIR/nuclei_results.txt" ]; then
+            curl -H "Content-Type: application/json" \
+              -X POST \
+              -d "{\"content\": \"⚡ Nuclei Scan Results for ${ORG}\n\`\`\`$(cat $TMP_DIR/nuclei_results.txt | head -n 50)\n...\`\`\`\"}" \
+              "$DISCORD_WEBHOOK_MAIN"
+          fi
+
