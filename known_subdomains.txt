@@ -161,3 +161,6 @@ http://zot-debug.palette-adv.spectrocloud.com:443
 https://version-3-4.legacy.docs.spectrocloud.com
 https://version-4-2.legacy.docs.spectrocloud.com
 http://www.kairos.io:443
+https://version-4-1.legacy.docs.spectrocloud.com
+http://zot-chinmay.palette-adv.spectrocloud.com:443
+http://zot-tgdebug.palette-adv.spectrocloud.com:443
