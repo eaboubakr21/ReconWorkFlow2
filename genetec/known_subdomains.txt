@@ -1558,3 +1558,15 @@ http://systemorchestrator.g1.genetec.cloud:443
 http://uksouth.gip.intrusion.genetec.cloud:443
 http://westeu.audit.edge.genetec.cloud:443
 http://westeu.systems.edge.genetec.cloud:443
+http://paportal-uat.genetec.com:443
+http://portal.g1.genetec.cloud:443
+http://prodeastus2.guv.genetec.cloud:443
+http://southuk.iam.genetec.cloud:443
+http://southuk.registration.edge.genetec.cloud:443
+http://systemreportservicesstaging.genetec.com:443
+https://usgovarizona.produsgov.tealogic.devx.genetec.cloud
+http://westeu.systemusers.edge.genetec.cloud:443
+http://westeu.applicationdeployment.edge.genetec.cloud:443
+https://westeu.ses.genetec.cloud
+http://westeurope.staging.login.genetec.com:443
+http://westeurope.hrz.tds-temp.genetec.cloud:443
