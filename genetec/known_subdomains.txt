@@ -1570,3 +1570,10 @@ http://westeu.applicationdeployment.edge.genetec.cloud:443
 https://westeu.ses.genetec.cloud
 http://westeurope.staging.login.genetec.com:443
 http://westeurope.hrz.tds-temp.genetec.cloud:443
+http://southuk.monitoring.edge.genetec.cloud:443
+https://status.securitycentersaas.genetec.cloud
+https://status.securitycentersaas.genetec.cloud:8443
+http://southuk.users.edge.genetec.cloud:443
+http://southuk.systemusers.edge.genetec.cloud:443
+http://westeu.firmwareupgrade.edge.genetec.cloud:443
+http://westeu.unificationbridge.edge.genetec.cloud:443
