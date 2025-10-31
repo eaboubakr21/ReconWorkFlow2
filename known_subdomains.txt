@@ -165,3 +165,5 @@ https://version-4-1.legacy.docs.spectrocloud.com
 http://zot-chinmay.palette-adv.spectrocloud.com:443
 http://zot-tgdebug.palette-adv.spectrocloud.com:443
 http://zot-nage.palette-adv.spectrocloud.com:443
+https://axiom.spectrocloud.com
+http://axiom.spectrocloud.com
