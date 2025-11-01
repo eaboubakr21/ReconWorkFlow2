@@ -1577,3 +1577,14 @@ http://southuk.users.edge.genetec.cloud:443
 http://southuk.systemusers.edge.genetec.cloud:443
 http://westeu.firmwareupgrade.edge.genetec.cloud:443
 http://westeu.unificationbridge.edge.genetec.cloud:443
+http://recursos.genetec.com
+http://ressources.genetec.com
+http://ressources.genetec.com:443
+http://southuk.firmwareupgrade.edge.genetec.cloud:443
+http://southuk.systems.edge.genetec.cloud:443
+https://terraform.genetec.cloud
+http://westeu.deviceidentity.edge.genetec.cloud:443
+http://we.ml.genetec.cloud:443
+http://westeu.monitoring.edge.genetec.cloud:443
+http://westeurope.prod.tealogic.devx.genetec.cloud:443
+http://westeu.users.edge.genetec.cloud:443
