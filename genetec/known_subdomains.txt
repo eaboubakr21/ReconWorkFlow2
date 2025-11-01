@@ -1588,3 +1588,5 @@ http://we.ml.genetec.cloud:443
 http://westeu.monitoring.edge.genetec.cloud:443
 http://westeurope.prod.tealogic.devx.genetec.cloud:443
 http://westeu.users.edge.genetec.cloud:443
+http://rdisdownloadcenter.genetec.com:443
+http://westus.staging.login.genetec.com:443
