@@ -1590,3 +1590,5 @@ http://westeurope.prod.tealogic.devx.genetec.cloud:443
 http://westeu.users.edge.genetec.cloud:443
 http://rdisdownloadcenter.genetec.com:443
 http://westus.staging.login.genetec.com:443
+http://pki.genetec.com:443
+http://servicefactory.iam.genetec.cloud:443
