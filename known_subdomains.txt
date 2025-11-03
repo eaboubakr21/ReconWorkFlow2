@@ -168,3 +168,4 @@ http://zot-nage.palette-adv.spectrocloud.com:443
 https://axiom.spectrocloud.com
 http://axiom.spectrocloud.com
 https://ok.spectrocloud.com
+http://partners.spectrocloud.com:443
