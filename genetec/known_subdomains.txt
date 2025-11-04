@@ -1596,3 +1596,6 @@ http://prod.physicalspace.genetec.cloud:443
 http://portal.genetec.com:443
 http://onvif.video.genetec.cloud:443
 http://produsgov.tealogic.devx.genetec.cloud:443
+http://login.genetec.com:443
+http://management.staging.eastus2.hrz.tds-temp.genetec.cloud:443
+http://management.staging.eastus2.prod.tds-temp.genetec.cloud:443
