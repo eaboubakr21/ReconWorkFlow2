@@ -1594,3 +1594,5 @@ http://pki.genetec.com:443
 http://servicefactory.iam.genetec.cloud:443
 http://prod.physicalspace.genetec.cloud:443
 http://portal.genetec.com:443
+http://onvif.video.genetec.cloud:443
+http://produsgov.tealogic.devx.genetec.cloud:443
