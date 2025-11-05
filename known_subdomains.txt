@@ -171,3 +171,4 @@ https://ok.spectrocloud.com
 http://partners.spectrocloud.com:443
 https://ratnakar.vault.prism.spectrocloud.com
 http://ratnakar.vault.prism.spectrocloud.com
+https://exp.palette-adv.spectrocloud.com
