@@ -169,3 +169,5 @@ https://axiom.spectrocloud.com
 http://axiom.spectrocloud.com
 https://ok.spectrocloud.com
 http://partners.spectrocloud.com:443
+https://ratnakar.vault.prism.spectrocloud.com
+http://ratnakar.vault.prism.spectrocloud.com
