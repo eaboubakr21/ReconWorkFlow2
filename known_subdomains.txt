@@ -175,3 +175,5 @@ https://exp.palette-adv.spectrocloud.com
 http://zrobert.palette-adv.spectrocloud.com
 https://zrobert.palette-adv.spectrocloud.com
 http://zrobert.palette-adv.spectrocloud.com:443
+http://softwareone.spectrocloud.com
+https://softwareone.spectrocloud.com
