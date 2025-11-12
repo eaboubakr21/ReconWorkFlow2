@@ -179,3 +179,7 @@ http://softwareone.spectrocloud.com
 https://softwareone.spectrocloud.com
 http://rc48.rc.spectrocloud.com
 https://rc48.rc.spectrocloud.com
+http://grafana-monitoring-stack.dev2.spectrocloud.com
+https://grafana-monitoring-stack.dev2.spectrocloud.com
+http://prom-monitoring-stack.dev2.spectrocloud.com
+https://prom-monitoring-stack.dev2.spectrocloud.com
