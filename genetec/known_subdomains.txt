@@ -1602,3 +1602,5 @@ http://management.staging.eastus2.prod.tds-temp.genetec.cloud:443
 https://centralca.iam.genetec.cloud:8443
 https://downloadcenter1.genetec.com:8443
 http://downloadcenter1.genetec.com:8080
+http://centralkr.systemusers.edge.genetec.cloud:443
+http://centralkr.video.genetec.cloud:443
