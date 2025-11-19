@@ -185,3 +185,5 @@ http://prom-monitoring-stack.dev2.spectrocloud.com
 https://prom-monitoring-stack.dev2.spectrocloud.com
 http://info.spectrocloud.com:8443
 http://msg.rapidai.spectrocloud.com:9443
+http://prow-test.spectrocloud.com
+https://prow-test.spectrocloud.com
