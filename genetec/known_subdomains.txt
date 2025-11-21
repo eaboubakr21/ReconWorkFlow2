@@ -1625,3 +1625,8 @@ http://ghostwriter.genetec.com:8443
 http://horizon-prod.securitycenter.genetec.cloud:8443
 http://ipro.onvif.video.genetec.cloud:8443
 http://ithelp.genetec.com:8443
+http://airbyte.genetec.com
+https://airbyte.genetec.com
+http://legacyprod.iam.genetec.cloud:443
+http://management.eastus2.hrz.tds-temp.genetec.cloud:443
+https://scc-aa4de389-797e-4e17-b22a-528bb910eed3.hostedsc.genetec.cloud
