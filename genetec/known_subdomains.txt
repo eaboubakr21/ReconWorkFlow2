@@ -1632,3 +1632,7 @@ http://management.eastus2.hrz.tds-temp.genetec.cloud:443
 https://scc-aa4de389-797e-4e17-b22a-528bb910eed3.hostedsc.genetec.cloud
 https://scc-255bd2a5-475a-4c30-bf92-aad576444fa8.hostedsc.genetec.cloud
 https://scc-3de5cc05-35ac-4074-bdf7-605293fb5053.hostedsc.genetec.cloud
+http://ssa.cloudops.genetec.cloud
+https://ssa.cloudops.genetec.cloud
+http://ssp.cloudops.genetec.cloud
+https://ssp.cloudops.genetec.cloud
