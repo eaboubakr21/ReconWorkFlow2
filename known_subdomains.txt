@@ -194,3 +194,6 @@ http://ahmad-metrics.palette-adv.spectrocloud.com:8080
 http://ahmad-monitoring.palette-adv.spectrocloud.com
 https://ahmad-metrics.palette-adv.spectrocloud.com
 https://ahmad-monitoring.palette-adv.spectrocloud.com
+http://ahmad-metrics.palette-adv.spectrocloud.com
+http://shopping-assistant.spectrocloud.com
+http://shoppint-assistant.spectrocloud.com
