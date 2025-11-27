@@ -190,3 +190,7 @@ https://prow-test.spectrocloud.com
 http://intersystems.spectrocloud.com
 https://intersystems.spectrocloud.com
 https://legacy.docs.spectrocloud.com
+http://ahmad-metrics.palette-adv.spectrocloud.com:8080
+http://ahmad-monitoring.palette-adv.spectrocloud.com
+https://ahmad-metrics.palette-adv.spectrocloud.com
+https://ahmad-monitoring.palette-adv.spectrocloud.com
