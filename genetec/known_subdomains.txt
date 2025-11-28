@@ -1637,3 +1637,5 @@ https://ssa.cloudops.genetec.cloud
 http://ssp.cloudops.genetec.cloud
 https://ssp.cloudops.genetec.cloud
 https://scc-2f2bd0e4-573f-4712-ac14-1b7c9e8d6667.hostedsc.genetec.cloud
+https://scc-a40a994c-98fc-44f1-b882-2055e13b5014.hostedsc.genetec.cloud
+https://scc-c7a5aad2-f900-477c-a187-b6271d9fc216.hostedsc.genetec.cloud
