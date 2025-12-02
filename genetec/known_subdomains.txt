@@ -1645,3 +1645,6 @@ http://internal.prod.tealogic.devx.genetec.cloud:443
 http://learn.genetec.com:443
 http://kr.securitycentersaas.genetec.cloud:443
 http://krc.ml.genetec.cloud:443
+http://ithelp.genetec.com:443
+http://koreacentral.ses.genetec.cloud:443
+http://krc.ia.genetec.cloud:443
