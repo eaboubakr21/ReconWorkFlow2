@@ -197,3 +197,5 @@ https://ahmad-monitoring.palette-adv.spectrocloud.com
 http://ahmad-metrics.palette-adv.spectrocloud.com
 http://shopping-assistant.spectrocloud.com
 http://shoppint-assistant.spectrocloud.com
+http://angel.palette-adv.spectrocloud.com
+https://angel.palette-adv.spectrocloud.com
