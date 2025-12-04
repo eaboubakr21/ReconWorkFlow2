@@ -1648,3 +1648,7 @@ http://krc.ml.genetec.cloud:443
 http://ithelp.genetec.com:443
 http://koreacentral.ses.genetec.cloud:443
 http://krc.ia.genetec.cloud:443
+https://scc-3de5cc05-35ac-4074-bdf7-605293fb5053.sc.genetec.cloud
+https://scc-255bd2a5-475a-4c30-bf92-aad576444fa8.sc.genetec.cloud
+https://scc-a40a994c-98fc-44f1-b882-2055e13b5014.sc.genetec.cloud
+https://scc-c7a5aad2-f900-477c-a187-b6271d9fc216.sc.genetec.cloud
