@@ -199,3 +199,4 @@ http://shopping-assistant.spectrocloud.com
 http://shoppint-assistant.spectrocloud.com
 http://angel.palette-adv.spectrocloud.com
 https://angel.palette-adv.spectrocloud.com
+http://vault.prism.spectrocloud.com:443
