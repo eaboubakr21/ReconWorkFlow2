@@ -200,3 +200,9 @@ http://shoppint-assistant.spectrocloud.com
 http://angel.palette-adv.spectrocloud.com
 https://angel.palette-adv.spectrocloud.com
 http://vault.prism.spectrocloud.com:443
+http://api.vertex.spectrocloud.com
+https://api.vertex.spectrocloud.com
+http://proxy.vertex.spectrocloud.com
+https://proxy.vertex.spectrocloud.com
+http://sachin.palette-adv.spectrocloud.com
+https://sachin.palette-adv.spectrocloud.com
