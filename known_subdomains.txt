@@ -206,3 +206,4 @@ http://proxy.vertex.spectrocloud.com
 https://proxy.vertex.spectrocloud.com
 http://sachin.palette-adv.spectrocloud.com
 https://sachin.palette-adv.spectrocloud.com
+http://upg.rapidai.spectrocloud.com:443
