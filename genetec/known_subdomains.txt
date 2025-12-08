@@ -1659,3 +1659,4 @@ http://koreacentral.gip.intrusion.genetec.cloud:443
 http://koreacentral.prod.tealogic.devx.genetec.cloud:443
 https://scc-075e1a9c-7cb1-437d-87e3-232b4b2232a0.sc.genetec.cloud
 https://scc-346b0f55-ceba-4964-a38a-e32402bd173d.sc.genetec.cloud
+https://scc-a97daa61-64b5-4847-ac2c-ff874483021e.sc.genetec.cloud
