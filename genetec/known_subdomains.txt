@@ -1663,3 +1663,4 @@ https://scc-a97daa61-64b5-4847-ac2c-ff874483021e.sc.genetec.cloud
 https://scc-316b648b-8f8d-459a-a885-e4dda73c7a6a.sc.genetec.cloud
 http://tip.genetec.com:8443
 http://tip.genetec.com:8080
+https://scc-ae833510-6586-4286-8e96-364f1f7971ce.sc.genetec.cloud
