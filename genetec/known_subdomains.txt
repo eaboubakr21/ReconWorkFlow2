@@ -1682,3 +1682,6 @@ https://scc-bf83a5e7-69fd-48e2-9ac0-8f9cfa301d13.sc.genetec.cloud
 https://scc-f15d080e-0f6f-4df4-b27a-1ad114ddb0a9.sc.genetec.cloud
 https://scc-66a82dfa-4b8d-4166-8a50-6e4b4ada63fd.sc.genetec.cloud
 https://scc-dff2bf23-8750-49dd-b2e3-62ee86b84652.sc.genetec.cloud
+http://order.genetec.com:8443
+https://scc-aa316e5b-6684-49f7-82f6-13207a8db7c0.sc.genetec.cloud
+https://scc-ca0bb3cb-fcea-4083-a3c2-67b9489aa7af.sc.genetec.cloud
