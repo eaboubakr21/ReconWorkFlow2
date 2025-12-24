@@ -1709,3 +1709,6 @@ http://synthetictests.eastus2.gip.intrusion.genetec.cloud:8443
 http://synthetictests.eastus2.gip.intrusion.genetec.cloud
 https://synthetictests.eastus2.gip.intrusion.genetec.cloud
 http://synthetictests.eastus2.gip.intrusion.genetec.cloud:8080
+http://api.genetec.com:8443
+http://api.genetec.com
+https://api.genetec.com
