@@ -1712,3 +1712,8 @@ http://synthetictests.eastus2.gip.intrusion.genetec.cloud:8080
 http://api.genetec.com:8443
 http://api.genetec.com
 https://api.genetec.com
+https://scc-05d42749-6dfe-4836-aa0a-1d55570dd0bd.sc.genetec.cloud
+https://scc-2108fd59-2a8a-493d-800b-e1adaa39e864.sc.genetec.cloud
+https://scc-4ae0507d-4861-44f7-b13a-03e68b6082cf.sc.genetec.cloud
+https://scc-45953bae-0228-49d6-ad5f-792bbde00c6a.sc.genetec.cloud
+https://scc-8dc4495c-3d07-4743-b6c5-16fa465f3d13.sc.genetec.cloud
