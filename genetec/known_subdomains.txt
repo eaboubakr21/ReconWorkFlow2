@@ -1717,3 +1717,6 @@ https://scc-2108fd59-2a8a-493d-800b-e1adaa39e864.sc.genetec.cloud
 https://scc-4ae0507d-4861-44f7-b13a-03e68b6082cf.sc.genetec.cloud
 https://scc-45953bae-0228-49d6-ad5f-792bbde00c6a.sc.genetec.cloud
 https://scc-8dc4495c-3d07-4743-b6c5-16fa465f3d13.sc.genetec.cloud
+https://scc-07ae452c-d0d6-4d79-b591-9083d80b3be9.sc.genetec.cloud
+http://software-management.edge.genetec.cloud:8443
+http://software-management.edge.genetec.cloud:8080
