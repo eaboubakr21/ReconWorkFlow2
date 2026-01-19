@@ -1721,3 +1721,4 @@ https://scc-07ae452c-d0d6-4d79-b591-9083d80b3be9.sc.genetec.cloud
 http://software-management.edge.genetec.cloud:8443
 http://software-management.edge.genetec.cloud:8080
 https://scc-8c718db6-0ae2-4a54-89ea-a1080eef2554.sc.genetec.cloud
+https://southuk.applicationdeployment.edge.genetec.cloud:8443
