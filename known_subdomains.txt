@@ -211,3 +211,5 @@ https://mural-dev.palette-adv.spectrocloud.com
 http://www.spectrocloud.com:8443
 http://www.spectrocloud.com:8080
 https://www.spectrocloud.com:8443
+http://gsl.spectrocloud.com
+https://gsl.spectrocloud.com
