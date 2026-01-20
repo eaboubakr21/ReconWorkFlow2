@@ -213,3 +213,6 @@ http://www.spectrocloud.com:8080
 https://www.spectrocloud.com:8443
 http://gsl.spectrocloud.com
 https://gsl.spectrocloud.com
+https://palette-ai-prod.palette-adv.spectrocloud.com
+http://product.spectrocloud.com
+https://product.spectrocloud.com
