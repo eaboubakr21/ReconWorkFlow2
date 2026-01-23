@@ -218,3 +218,7 @@ http://product.spectrocloud.com
 https://product.spectrocloud.com
 http://zot-ahmad.palette-adv.spectrocloud.com
 https://zot-ahmad.palette-adv.spectrocloud.com
+http://grafana.mural-dev.palette-adv.spectrocloud.com
+https://grafana.mural-dev.palette-adv.spectrocloud.com
+http://prometheus.mural-dev.palette-adv.spectrocloud.com
+https://prometheus.mural-dev.palette-adv.spectrocloud.com
