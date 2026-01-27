@@ -1726,3 +1726,4 @@ http://centralindia.prod.tealogic.devx.genetec.cloud:8443
 http://centralindia.prod.tealogic.devx.genetec.cloud:8080
 http://centralindia.prod.tealogic.devx.genetec.cloud
 https://centralindia.prod.tealogic.devx.genetec.cloud
+http://info.genetec.com:8080
