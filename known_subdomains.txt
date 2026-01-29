@@ -223,3 +223,5 @@ https://grafana.mural-dev.palette-adv.spectrocloud.com
 http://prometheus.mural-dev.palette-adv.spectrocloud.com
 https://prometheus.mural-dev.palette-adv.spectrocloud.com
 https://air-aviz-demo.palette-adv.spectrocloud.com
+http://traefik-dev.spectrocloud.com
+https://traefik-dev.spectrocloud.com
