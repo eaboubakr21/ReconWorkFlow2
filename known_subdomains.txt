@@ -225,3 +225,5 @@ https://prometheus.mural-dev.palette-adv.spectrocloud.com
 https://air-aviz-demo.palette-adv.spectrocloud.com
 http://traefik-dev.spectrocloud.com
 https://traefik-dev.spectrocloud.com
+http://watch.spectrocloud.com
+https://watch.spectrocloud.com
