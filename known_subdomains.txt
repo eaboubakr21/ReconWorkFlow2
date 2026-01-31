@@ -258,3 +258,6 @@ http://msg.training.spectrocloud.com:9443
 http://msg2.alpha.perf.spectrocloud.com:9443
 http://secret.palette-devx.spectrocloud.com
 https://secret.palette-devx.spectrocloud.com
+https://message1.daily.teams.spectrocloud.com:9443
+https://msg-rc47.rc.spectrocloud.com:9443
+https://msg.unqork.spectrocloud.com:9443
