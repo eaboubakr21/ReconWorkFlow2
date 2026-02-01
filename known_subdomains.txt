@@ -261,3 +261,7 @@ https://secret.palette-devx.spectrocloud.com
 https://message1.daily.teams.spectrocloud.com:9443
 https://msg-rc47.rc.spectrocloud.com:9443
 https://msg.unqork.spectrocloud.com:9443
+http://kind-ahmad.palette-adv.spectrocloud.com
+https://kind-ahmad.palette-adv.spectrocloud.com
+https://msg.chipotle-na.spectrocloud.com:9443
+https://msg.rc48.rc.spectrocloud.com:9443
