@@ -268,3 +268,4 @@ https://msg.rc48.rc.spectrocloud.com:9443
 https://msg.ee-prod2-us.gehc-pcs.spectrocloud.com:8443
 https://msg.ee-prod1-us.gehc-pcs.spectrocloud.com:8443
 https://msg.eu.spectrocloud.com:9443
+https://msg.gsl.spectrocloud.com:9443
