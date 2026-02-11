@@ -273,3 +273,7 @@ https://msg.dentsply.spectrocloud.com:9443
 https://msg.ee-stage-us.gehc-pcs.spectrocloud.com:8443
 http://znage.palette-adv.spectrocloud.com
 https://znage.palette-adv.spectrocloud.com
+http://steven-freed.palette-adv.spectrocloud.com
+https://steven-freed.palette-adv.spectrocloud.com
+http://tommy.palette-adv.spectrocloud.com
+https://tommy.palette-adv.spectrocloud.com
