@@ -1744,3 +1744,4 @@ https://wreckingcrew.genetec.com
 http://wwwdownloads.genetec.com
 https://wwwdownloads.genetec.com
 http://remotelab.genetec.com:8443
+http://pki-portal.genetec.com:8443
