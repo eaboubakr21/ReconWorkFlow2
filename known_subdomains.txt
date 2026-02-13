@@ -279,3 +279,5 @@ http://tommy.palette-adv.spectrocloud.com
 https://tommy.palette-adv.spectrocloud.com
 http://zot-artur.palette-adv.spectrocloud.com
 https://zot-artur.palette-adv.spectrocloud.com
+http://nginx.traefik-dev.spectrocloud.com
+https://nginx.traefik-dev.spectrocloud.com
