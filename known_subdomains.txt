@@ -281,3 +281,5 @@ http://zot-artur.palette-adv.spectrocloud.com
 https://zot-artur.palette-adv.spectrocloud.com
 http://nginx.traefik-dev.spectrocloud.com
 https://nginx.traefik-dev.spectrocloud.com
+https://rag-nginx-env.teams.spectrocloud.com
+http://rag-nginx-env.teams.spectrocloud.com
