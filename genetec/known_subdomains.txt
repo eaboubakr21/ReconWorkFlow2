@@ -1746,3 +1746,13 @@ https://wwwdownloads.genetec.com
 http://remotelab.genetec.com:8443
 http://pki-portal.genetec.com:8443
 http://sc-webapp-help.genetec.com:8443
+http://cloudrunner.prod-au.genetec.cloud
+http://cloudrunner.prod-au.genetec.cloud:8443
+http://cloudrunner.prod-au.genetec.cloud:8080
+http://cloudrunner.prod-ca.genetec.cloud:8443
+http://cloudrunner.prod-ca.genetec.cloud
+http://cloudrunner.prod-ca.genetec.cloud:8080
+https://cloudrunner.prod-ca.genetec.cloud
+https://cloudrunner.prod-au.genetec.cloud
+http://staging.cloudrunner.prod-au.genetec.cloud
+https://staging.cloudrunner.prod-au.genetec.cloud
