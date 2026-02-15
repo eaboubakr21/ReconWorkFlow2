@@ -1756,3 +1756,7 @@ https://cloudrunner.prod-ca.genetec.cloud
 https://cloudrunner.prod-au.genetec.cloud
 http://staging.cloudrunner.prod-au.genetec.cloud
 https://staging.cloudrunner.prod-au.genetec.cloud
+http://staging.cloudrunner.prod-au.genetec.cloud:8443
+http://staging.cloudrunner.prod-au.genetec.cloud:8080
+http://staging.cloudrunner.prod-ca.genetec.cloud
+https://staging.cloudrunner.prod-ca.genetec.cloud
