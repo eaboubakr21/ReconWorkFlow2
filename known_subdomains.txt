@@ -283,3 +283,5 @@ http://nginx.traefik-dev.spectrocloud.com
 https://nginx.traefik-dev.spectrocloud.com
 https://rag-nginx-env.teams.spectrocloud.com
 http://rag-nginx-env.teams.spectrocloud.com
+http://ingress.traefik-dev.spectrocloud.com
+https://ingress.traefik-dev.spectrocloud.com
