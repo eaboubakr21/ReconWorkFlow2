@@ -1774,3 +1774,5 @@ http://staging.cloudrunner.prod-usgov.genetec.cloud:8080
 http://staging.cloudrunner.prod-usgov.genetec.cloud
 https://staging.cloudrunner.prod-usgov.genetec.cloud
 https://svhelp.genetec.com:8443
+http://mktg-videos-test.genetec.com
+https://mktg-videos-test.genetec.com
