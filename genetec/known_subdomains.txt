@@ -1776,3 +1776,7 @@ https://staging.cloudrunner.prod-usgov.genetec.cloud
 https://svhelp.genetec.com:8443
 http://mktg-videos-test.genetec.com
 https://mktg-videos-test.genetec.com
+http://campaigncalc.genetec.com:8443
+http://svbackupservicesstaging.genetec.com:8443
+http://svportal.genetec.com:8443
+http://svcalculator.genetec.com:8443
