@@ -285,3 +285,5 @@ https://rag-nginx-env.teams.spectrocloud.com
 http://rag-nginx-env.teams.spectrocloud.com
 http://ingress.traefik-dev.spectrocloud.com
 https://ingress.traefik-dev.spectrocloud.com
+http://rag-nginx-env.teams.spectrocloud.com:8443
+http://rag-nginx-env.teams.spectrocloud.com:8080
