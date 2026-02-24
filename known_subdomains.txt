@@ -287,3 +287,5 @@ http://ingress.traefik-dev.spectrocloud.com
 https://ingress.traefik-dev.spectrocloud.com
 http://rag-nginx-env.teams.spectrocloud.com:8443
 http://rag-nginx-env.teams.spectrocloud.com:8080
+http://aditi.traefik-dev.spectrocloud.com
+https://aditi.traefik-dev.spectrocloud.com
