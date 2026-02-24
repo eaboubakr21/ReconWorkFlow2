@@ -1780,3 +1780,6 @@ http://campaigncalc.genetec.com:8443
 http://svbackupservicesstaging.genetec.com:8443
 http://svportal.genetec.com:8443
 http://svcalculator.genetec.com:8443
+http://downloadcentertest.genetec.com:8443
+http://svhub.genetec.com:8443
+http://svservicesstage.genetec.com:8443
