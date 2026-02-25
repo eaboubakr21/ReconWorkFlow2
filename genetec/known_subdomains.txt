@@ -1783,3 +1783,4 @@ http://svcalculator.genetec.com:8443
 http://downloadcentertest.genetec.com:8443
 http://svhub.genetec.com:8443
 http://svservicesstage.genetec.com:8443
+http://rdisdownloadcenter.genetec.com:8443
