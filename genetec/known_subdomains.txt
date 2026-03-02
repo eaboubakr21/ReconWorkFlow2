@@ -1784,3 +1784,6 @@ http://downloadcentertest.genetec.com:8443
 http://svhub.genetec.com:8443
 http://svservicesstage.genetec.com:8443
 http://rdisdownloadcenter.genetec.com:8443
+http://paybyplate.genetec.com:8443
+http://samip-staging.genetec.com:8443
+http://sampkac-staging.genetec.com:8443
