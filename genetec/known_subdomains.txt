@@ -1787,3 +1787,5 @@ http://rdisdownloadcenter.genetec.com:8443
 http://paybyplate.genetec.com:8443
 http://samip-staging.genetec.com:8443
 http://sampkac-staging.genetec.com:8443
+http://paportal-devmaster.genetec.com:8443
+http://paportal-uat.genetec.com:8443
