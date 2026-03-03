@@ -1789,3 +1789,5 @@ http://samip-staging.genetec.com:8443
 http://sampkac-staging.genetec.com:8443
 http://paportal-devmaster.genetec.com:8443
 http://paportal-uat.genetec.com:8443
+http://paportal-qa.genetec.com:8443
+http://paportal.genetec.com:8443
