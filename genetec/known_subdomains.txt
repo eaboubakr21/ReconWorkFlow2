@@ -1791,3 +1791,5 @@ http://paportal-devmaster.genetec.com:8443
 http://paportal-uat.genetec.com:8443
 http://paportal-qa.genetec.com:8443
 http://paportal.genetec.com:8443
+http://paportal-dev.genetec.com:8443
+http://samhealth-qa-stage.genetec.com:8443
