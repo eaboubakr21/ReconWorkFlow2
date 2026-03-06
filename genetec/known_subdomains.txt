@@ -1793,3 +1793,11 @@ http://paportal-qa.genetec.com:8443
 http://paportal.genetec.com:8443
 http://paportal-dev.genetec.com:8443
 http://samhealth-qa-stage.genetec.com:8443
+http://centralca.sipelia.genetec.cloud:8443
+http://centralca.sipelia.genetec.cloud:8080
+http://centralkr.sipelia.genetec.cloud:8443
+http://centralkr.sipelia.genetec.cloud:8080
+http://eastau.sipelia.genetec.cloud:8443
+http://eastau.sipelia.genetec.cloud:8080
+http://southuk.sipelia.genetec.cloud:8443
+http://southuk.sipelia.genetec.cloud:8080
