@@ -1801,3 +1801,7 @@ http://eastau.sipelia.genetec.cloud:8443
 http://eastau.sipelia.genetec.cloud:8080
 http://southuk.sipelia.genetec.cloud:8443
 http://southuk.sipelia.genetec.cloud:8080
+http://eastus2.sipelia.genetec.cloud:8443
+http://eastus2.sipelia.genetec.cloud:8080
+http://westeu.sipelia.genetec.cloud:8443
+http://westeu.sipelia.genetec.cloud:8080
