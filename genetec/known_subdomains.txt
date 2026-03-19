@@ -1811,3 +1811,4 @@ http://hangfire.abs.va.genetec.cloud:8080
 https://hangfire.abs.va.genetec.cloud
 http://dio.nonprod.genetec.com
 https://dio.nonprod.genetec.com
+http://measure.genetec.com:8443
