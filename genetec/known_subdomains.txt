@@ -1815,3 +1815,4 @@ http://measure.genetec.com:8443
 http://sam.genetec.com:8443
 http://samhealthanon.genetec.com:8443
 http://sampkac.genetec.com:8443
+http://gsamp.genetec.com:8443
