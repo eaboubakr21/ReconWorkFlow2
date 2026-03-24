@@ -1816,3 +1816,17 @@ http://sam.genetec.com:8443
 http://samhealthanon.genetec.com:8443
 http://sampkac.genetec.com:8443
 http://gsamp.genetec.com:8443
+http://dio-api-dev.genetec.com:8443
+http://dio-api-qa.genetec.com:8443
+http://dio-api-uat.genetec.com:8443
+http://dio-api-uat.genetec.com
+http://dio-api-dev.genetec.com
+https://dio-api-uat.genetec.com
+http://dio-api-uat.genetec.com:8080
+http://dio-api.genetec.com:8443
+http://dio-api-qa.genetec.com
+https://dio-api-dev.genetec.com
+https://dio-api-qa.genetec.com
+http://dio-api.genetec.com
+https://dio-api.genetec.com
+http://samhealth.genetec.com:8443
