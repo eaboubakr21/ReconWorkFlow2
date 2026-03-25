@@ -1830,3 +1830,4 @@ https://dio-api-qa.genetec.com
 http://dio-api.genetec.com
 https://dio-api.genetec.com
 http://samhealth.genetec.com:8443
+http://samip.genetec.com:8443
