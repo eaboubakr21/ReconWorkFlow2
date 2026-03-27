@@ -1880,3 +1880,7 @@ http://portal.staging.cloudrunner.prod-au.genetec.cloud:8443
 http://portal.staging.cloudrunner.prod-au.genetec.cloud:8080
 http://portal.staging.cloudrunner.prod-au.genetec.cloud
 https://portal.staging.cloudrunner.prod-au.genetec.cloud
+http://portal.usgovarizona.staging.cloudrunner.prod-usgov.genetec.cloud:8443
+http://portal.usgovarizona.staging.cloudrunner.prod-usgov.genetec.cloud:8080
+http://portal.usgovarizona.staging.cloudrunner.prod-usgov.genetec.cloud
+https://portal.usgovarizona.staging.cloudrunner.prod-usgov.genetec.cloud
