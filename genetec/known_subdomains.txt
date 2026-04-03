@@ -1903,3 +1903,11 @@ http://order-maint.genetec.com:8443
 http://portal-maint.genetec.com:8443
 http://promo-maint.genetec.com:8443
 http://tipsts-maint.genetec.com:8443
+http://eastus2.driver.edge.genetec.cloud:8443
+http://eastus2.driver.edge.genetec.cloud:8080
+http://eastus2.driver.edge.genetec.cloud
+https://eastus2.driver.edge.genetec.cloud
+http://westeu.driver.edge.genetec.cloud:8443
+http://westeu.driver.edge.genetec.cloud:8080
+http://westeu.driver.edge.genetec.cloud
+https://westeu.driver.edge.genetec.cloud
