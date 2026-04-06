@@ -1912,3 +1912,7 @@ http://westeu.driver.edge.genetec.cloud:8080
 http://westeu.driver.edge.genetec.cloud
 https://westeu.driver.edge.genetec.cloud
 http://partners-maint.genetec.com:8443
+http://southuk.driver.edge.genetec.cloud:8443
+http://southuk.driver.edge.genetec.cloud:8080
+http://southuk.driver.edge.genetec.cloud
+https://southuk.driver.edge.genetec.cloud
