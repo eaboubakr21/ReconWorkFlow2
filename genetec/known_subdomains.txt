@@ -1916,3 +1916,11 @@ http://southuk.driver.edge.genetec.cloud:8443
 http://southuk.driver.edge.genetec.cloud:8080
 http://southuk.driver.edge.genetec.cloud
 https://southuk.driver.edge.genetec.cloud
+http://centralca.serviceregistry.genetec.cloud:8443
+http://centralca.serviceregistry.genetec.cloud
+http://centralca.serviceregistry.genetec.cloud:8080
+https://centralca.serviceregistry.genetec.cloud
+http://eastus2.serviceregistry.genetec.cloud:8443
+http://eastus2.serviceregistry.genetec.cloud
+http://eastus2.serviceregistry.genetec.cloud:8080
+https://eastus2.serviceregistry.genetec.cloud
