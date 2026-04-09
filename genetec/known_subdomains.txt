@@ -1924,3 +1924,15 @@ http://eastus2.serviceregistry.genetec.cloud:8443
 http://eastus2.serviceregistry.genetec.cloud
 http://eastus2.serviceregistry.genetec.cloud:8080
 https://eastus2.serviceregistry.genetec.cloud
+http://centralkr.serviceregistry.genetec.cloud:8080
+http://centralkr.serviceregistry.genetec.cloud:8443
+http://centralkr.serviceregistry.genetec.cloud
+https://centralkr.serviceregistry.genetec.cloud
+http://eastau.serviceregistry.genetec.cloud:8443
+http://eastau.serviceregistry.genetec.cloud
+http://eastau.serviceregistry.genetec.cloud:8080
+https://eastau.serviceregistry.genetec.cloud
+http://westeu.serviceregistry.genetec.cloud:8443
+http://westeu.serviceregistry.genetec.cloud:8080
+http://westeu.serviceregistry.genetec.cloud
+https://westeu.serviceregistry.genetec.cloud
