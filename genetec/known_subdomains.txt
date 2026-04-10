@@ -1936,3 +1936,7 @@ http://westeu.serviceregistry.genetec.cloud:8443
 http://westeu.serviceregistry.genetec.cloud:8080
 http://westeu.serviceregistry.genetec.cloud
 https://westeu.serviceregistry.genetec.cloud
+http://southuk.serviceregistry.genetec.cloud:8443
+http://southuk.serviceregistry.genetec.cloud
+http://southuk.serviceregistry.genetec.cloud:8080
+https://southuk.serviceregistry.genetec.cloud
