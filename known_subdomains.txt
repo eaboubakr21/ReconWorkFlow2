@@ -293,3 +293,7 @@ https://venkat-pai-integ.palette-adv.spectrocloud.com
 http://devops.spectrocloud.com
 https://devops.spectrocloud.com
 https://sonarqube.devops.spectrocloud.com
+http://gehc-sre3126.spectrocloud.com
+https://gehc-sre3126.spectrocloud.com
+http://traefik-dev.palette-adv.spectrocloud.com
+https://traefik-dev.palette-adv.spectrocloud.com
