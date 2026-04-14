@@ -1940,3 +1940,4 @@ http://southuk.serviceregistry.genetec.cloud:8443
 http://southuk.serviceregistry.genetec.cloud
 http://southuk.serviceregistry.genetec.cloud:8080
 https://southuk.serviceregistry.genetec.cloud
+http://pki.genetec.com:8443
