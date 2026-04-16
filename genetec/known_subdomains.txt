@@ -1941,3 +1941,11 @@ http://southuk.serviceregistry.genetec.cloud
 http://southuk.serviceregistry.genetec.cloud:8080
 https://southuk.serviceregistry.genetec.cloud
 http://pki.genetec.com:8443
+http://temp.eastus2.iam.genetec.cloud
+http://temp.eastus2.iam.genetec.cloud:8080
+http://temp.eastus2.iam.genetec.cloud:8443
+https://temp.eastus2.iam.genetec.cloud
+http://temp.westeu.iam.genetec.cloud
+http://temp.westeu.iam.genetec.cloud:8080
+http://temp.westeu.iam.genetec.cloud:8443
+https://temp.westeu.iam.genetec.cloud
