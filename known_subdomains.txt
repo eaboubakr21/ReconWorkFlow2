@@ -301,3 +301,4 @@ http://davor.palette-adv.spectrocloud.com
 https://davor.palette-adv.spectrocloud.com
 http://rc49.rc.spectrocloud.com
 https://rc49.rc.spectrocloud.com
+http://mural-dev.palette-adv.spectrocloud.com
