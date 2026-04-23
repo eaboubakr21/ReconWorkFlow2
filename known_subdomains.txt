@@ -302,3 +302,10 @@ https://davor.palette-adv.spectrocloud.com
 http://rc49.rc.spectrocloud.com
 https://rc49.rc.spectrocloud.com
 http://mural-dev.palette-adv.spectrocloud.com
+http://version-4-7.legacy.docs.spectrocloud.com
+http://version-4-5.legacy.docs.spectrocloud.com
+http://version-4-6.legacy.docs.spectrocloud.com
+https://version-4-7.legacy.docs.spectrocloud.com
+http://version-4-8.legacy.docs.spectrocloud.com
+https://version-4-6.legacy.docs.spectrocloud.com
+https://version-4-8.legacy.docs.spectrocloud.com
