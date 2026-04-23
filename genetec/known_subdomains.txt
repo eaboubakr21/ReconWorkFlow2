@@ -1950,3 +1950,5 @@ http://temp.westeu.iam.genetec.cloud:8080
 http://temp.westeu.iam.genetec.cloud:8443
 https://temp.westeu.iam.genetec.cloud
 http://pki.genetec.com:8080
+http://www.events.genetec.com
+https://www.events.genetec.com
