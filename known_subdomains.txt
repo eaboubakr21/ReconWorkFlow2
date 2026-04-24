@@ -310,3 +310,8 @@ http://version-4-8.legacy.docs.spectrocloud.com
 https://version-4-6.legacy.docs.spectrocloud.com
 https://version-4-8.legacy.docs.spectrocloud.com
 https://version-4-5.legacy.docs.spectrocloud.com
+http://discovery.picard.spectrocloud.com
+http://enterprise.picard.spectrocloud.com
+http://grpc-testing.traefik-dev.spectrocloud.com
+https://grpc-testing.traefik-dev.spectrocloud.com
+http://voyager.picard.spectrocloud.com
