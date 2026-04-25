@@ -315,3 +315,4 @@ http://enterprise.picard.spectrocloud.com
 http://grpc-testing.traefik-dev.spectrocloud.com
 https://grpc-testing.traefik-dev.spectrocloud.com
 http://voyager.picard.spectrocloud.com
+http://picard.spectrocloud.com
