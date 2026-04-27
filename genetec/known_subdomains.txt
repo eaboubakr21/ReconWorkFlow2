@@ -1952,3 +1952,4 @@ https://temp.westeu.iam.genetec.cloud
 http://pki.genetec.com:8080
 http://www.events.genetec.com
 https://www.events.genetec.com
+https://scc-7101851c-383d-4a11-93e0-c117ef3d4ecf.sc.genetec.cloud
