@@ -1957,3 +1957,6 @@ https://pki.genetec.com:8443
 http://architecture.genetec.com:8443
 http://genetecedi.test.genetec.com:8443
 http://restrictarch.genetec.com:8443
+https://jobs.id.genetec.com
+https://jobs.id.genetec.com:8443
+http://jobs.id.genetec.com
