@@ -1960,3 +1960,6 @@ http://restrictarch.genetec.com:8443
 https://jobs.id.genetec.com
 https://jobs.id.genetec.com:8443
 http://jobs.id.genetec.com
+http://genetecedi.genetec.com:8443
+http://jobs.id.genetec.com:8443
+http://jobs.id.genetec.com:8080
