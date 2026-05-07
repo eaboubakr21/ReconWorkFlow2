@@ -1964,3 +1964,6 @@ http://genetecedi.genetec.com:8443
 http://jobs.id.genetec.com:8443
 http://jobs.id.genetec.com:8080
 http://remotecare.genetec.com:8443
+http://add-ons.genetec.com:8443
+http://add-ons-elasticsearch.genetec.com:8443
+http://add-ons-server.genetec.com:8443
