@@ -1963,3 +1963,4 @@ http://jobs.id.genetec.com
 http://genetecedi.genetec.com:8443
 http://jobs.id.genetec.com:8443
 http://jobs.id.genetec.com:8080
+http://remotecare.genetec.com:8443
