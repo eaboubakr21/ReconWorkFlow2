@@ -1967,3 +1967,5 @@ http://remotecare.genetec.com:8443
 http://add-ons.genetec.com:8443
 http://add-ons-elasticsearch.genetec.com:8443
 http://add-ons-server.genetec.com:8443
+http://meetings-a.genetec.com:8443
+http://meetings.genetec.com:8443
