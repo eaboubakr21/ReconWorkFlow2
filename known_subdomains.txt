@@ -316,3 +316,10 @@ http://grpc-testing.traefik-dev.spectrocloud.com
 https://grpc-testing.traefik-dev.spectrocloud.com
 http://voyager.picard.spectrocloud.com
 http://picard.spectrocloud.com
+http://admin.stage.hyperdrive.ai-rsch.spectrocloud.com
+http://api.stage.hyperdrive.ai-rsch.spectrocloud.com
+https://admin.stage.hyperdrive.ai-rsch.spectrocloud.com
+https://api.stage.hyperdrive.ai-rsch.spectrocloud.com
+http://app.stage.hyperdrive.ai-rsch.spectrocloud.com
+https://app.stage.hyperdrive.ai-rsch.spectrocloud.com
+https://venkat-sai-integ.palette-adv.spectrocloud.com
