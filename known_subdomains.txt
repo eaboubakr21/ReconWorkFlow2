@@ -323,3 +323,12 @@ https://api.stage.hyperdrive.ai-rsch.spectrocloud.com
 http://app.stage.hyperdrive.ai-rsch.spectrocloud.com
 https://app.stage.hyperdrive.ai-rsch.spectrocloud.com
 https://venkat-sai-integ.palette-adv.spectrocloud.com
+http://admin.stage.hyperdrive.spectrocloud.com
+https://admin.stage.hyperdrive.spectrocloud.com
+http://api.stage.hyperdrive.spectrocloud.com
+https://api.stage.hyperdrive.spectrocloud.com
+http://app.stage.hyperdrive.spectrocloud.com
+https://app.stage.hyperdrive.spectrocloud.com
+http://docs.hyperdrive.spectrocloud.com
+https://docs.hyperdrive.spectrocloud.com
+http://palette-ai-prod.palette-adv.spectrocloud.com
