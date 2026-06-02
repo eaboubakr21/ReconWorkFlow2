@@ -332,3 +332,9 @@ https://app.stage.hyperdrive.spectrocloud.com
 http://docs.hyperdrive.spectrocloud.com
 https://docs.hyperdrive.spectrocloud.com
 http://palette-ai-prod.palette-adv.spectrocloud.com
+http://api.hyperdrive.spectrocloud.com
+http://admin.hyperdrive.spectrocloud.com
+https://api.hyperdrive.spectrocloud.com
+https://admin.hyperdrive.spectrocloud.com
+http://app.hyperdrive.spectrocloud.com
+https://app.hyperdrive.spectrocloud.com
