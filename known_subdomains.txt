@@ -338,3 +338,5 @@ https://api.hyperdrive.spectrocloud.com
 https://admin.hyperdrive.spectrocloud.com
 http://app.hyperdrive.spectrocloud.com
 https://app.hyperdrive.spectrocloud.com
+http://registry.dev.spectrocloud.com
+https://registry.dev.spectrocloud.com
