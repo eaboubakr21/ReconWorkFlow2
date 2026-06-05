@@ -340,3 +340,5 @@ http://app.hyperdrive.spectrocloud.com
 https://app.hyperdrive.spectrocloud.com
 http://registry.dev.spectrocloud.com
 https://registry.dev.spectrocloud.com
+http://poc.sre.spectrocloud.com
+https://poc.sre.spectrocloud.com
