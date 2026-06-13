@@ -346,3 +346,5 @@ https://shopping-assistant.spectrocloud.com
 http://stage.pulsecheck.spectrocloud.com
 https://stage.pulsecheck.spectrocloud.com
 https://shoppint-assistant.spectrocloud.com
+http://pulsecheck.spectrocloud.com
+https://pulsecheck.spectrocloud.com
