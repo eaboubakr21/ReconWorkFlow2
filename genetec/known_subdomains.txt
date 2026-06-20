@@ -1972,3 +1972,5 @@ http://meetings.genetec.com:8443
 https://scc-d5e42b25-7b63-403a-850b-879a33f7ffb2.sc.genetec.cloud
 http://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud
 https://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud
+http://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud:8080
+http://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud:8443
