@@ -1974,3 +1974,4 @@ http://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud
 https://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud
 http://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud:8080
 http://portal.usgovvirginia.staging.cloudrunner.prod-usgov.genetec.cloud:8443
+https://scc-c98cda83-641f-4f11-9436-62e9329c3950.sc.genetec.cloud
