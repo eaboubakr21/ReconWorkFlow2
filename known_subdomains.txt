@@ -348,3 +348,4 @@ https://stage.pulsecheck.spectrocloud.com
 https://shoppint-assistant.spectrocloud.com
 http://pulsecheck.spectrocloud.com
 https://pulsecheck.spectrocloud.com
+http://rtx5-tenant.palette-adv.spectrocloud.com
