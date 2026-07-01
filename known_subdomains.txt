@@ -350,3 +350,11 @@ http://pulsecheck.spectrocloud.com
 https://pulsecheck.spectrocloud.com
 http://rtx5-tenant.palette-adv.spectrocloud.com
 http://hyperion.spectrocloud.com
+http://dg-helm-2.pax.spectrocloud.com
+http://dg-helm-1.pax.spectrocloud.com
+https://discovery.picard.spectrocloud.com
+https://dg-helm-2.pax.spectrocloud.com
+https://dg-helm-1.pax.spectrocloud.com
+https://enterprise.picard.spectrocloud.com
+https://picard.spectrocloud.com
+https://voyager.picard.spectrocloud.com
