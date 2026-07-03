@@ -358,3 +358,5 @@ https://dg-helm-1.pax.spectrocloud.com
 https://enterprise.picard.spectrocloud.com
 https://picard.spectrocloud.com
 https://voyager.picard.spectrocloud.com
+http://api.stage.pulsecheck.spectrocloud.com
+https://api.stage.pulsecheck.spectrocloud.com
