@@ -361,3 +361,4 @@ https://voyager.picard.spectrocloud.com
 http://api.stage.pulsecheck.spectrocloud.com
 https://api.stage.pulsecheck.spectrocloud.com
 http://amd.spectrocloud.com:8443
+https://ideas.spectrocloud.com
