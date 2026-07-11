@@ -2033,3 +2033,5 @@ http://southuk.routingcollector.edge.genetec.cloud:8080
 https://southuk.routingcollector.edge.genetec.cloud
 http://go.genetec.com:8080
 https://scc-c761c54a-c040-4d03-ad74-65a2d53f9784.sc.genetec.cloud
+http://vscodemp.genetec.com
+https://vscodemp.genetec.com
