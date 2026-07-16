@@ -363,3 +363,5 @@ https://api.stage.pulsecheck.spectrocloud.com
 http://amd.spectrocloud.com:8443
 https://ideas.spectrocloud.com
 http://ideas.spectrocloud.com
+http://1006.palette-fusion.spectrocloud.com
+https://1006.palette-fusion.spectrocloud.com
