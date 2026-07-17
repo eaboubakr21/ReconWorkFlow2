@@ -365,3 +365,5 @@ https://ideas.spectrocloud.com
 http://ideas.spectrocloud.com
 http://1006.palette-fusion.spectrocloud.com
 https://1006.palette-fusion.spectrocloud.com
+http://spectroflows.ai-rsch.spectrocloud.com
+https://spectroflows.ai-rsch.spectrocloud.com
