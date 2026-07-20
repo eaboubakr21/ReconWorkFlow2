@@ -2036,3 +2036,5 @@ https://scc-c761c54a-c040-4d03-ad74-65a2d53f9784.sc.genetec.cloud
 http://vscodemp.genetec.com
 https://vscodemp.genetec.com
 https://go.genetec.com:8443
+https://scc-a026fe66-8029-4252-ac0b-b2c91468e4e8.sc.genetec.cloud
+https://scc-8ccc241e-7d33-4842-9cb2-6c643379aa5c.sc.genetec.cloud
