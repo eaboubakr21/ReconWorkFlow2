@@ -367,3 +367,4 @@ http://1006.palette-fusion.spectrocloud.com
 https://1006.palette-fusion.spectrocloud.com
 http://spectroflows.ai-rsch.spectrocloud.com
 https://spectroflows.ai-rsch.spectrocloud.com
+http://amd.spectrocloud.com:8080
