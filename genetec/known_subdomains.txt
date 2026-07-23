@@ -2039,3 +2039,7 @@ https://go.genetec.com:8443
 https://scc-a026fe66-8029-4252-ac0b-b2c91468e4e8.sc.genetec.cloud
 https://scc-8ccc241e-7d33-4842-9cb2-6c643379aa5c.sc.genetec.cloud
 https://scc-59f42478-875a-45fa-be62-d213d31ce7d3.sc.genetec.cloud
+http://recursos.genetec.com:8443
+http://recursos.genetec.com:8080
+http://resources.genetec.com:8080
+http://resources.genetec.com:8443
