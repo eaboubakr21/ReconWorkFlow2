@@ -2044,3 +2044,6 @@ http://recursos.genetec.com:8080
 http://resources.genetec.com:8080
 http://resources.genetec.com:8443
 https://ressources.genetec.com:8443
+http://ressources.genetec.com:8443
+http://ressources.genetec.com:8080
+https://scc-d13f5e64-d577-4641-98a5-8ca78e1dfb1c.sc.genetec.cloud
