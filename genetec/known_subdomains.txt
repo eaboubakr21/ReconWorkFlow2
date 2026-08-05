@@ -2048,3 +2048,7 @@ http://ressources.genetec.com:8443
 http://ressources.genetec.com:8080
 https://scc-d13f5e64-d577-4641-98a5-8ca78e1dfb1c.sc.genetec.cloud
 https://recursos.genetec.com:8443
+http://anchor.edge.genetec.cloud:8443
+http://anchor.edge.genetec.cloud:8080
+http://anchor.edge.genetec.cloud
+https://anchor.edge.genetec.cloud
