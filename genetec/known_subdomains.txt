@@ -2110,3 +2110,11 @@ https://webconfig.scc-dff2bf23-8750-49dd-b2e3-62ee86b84652.sc.genetec.cloud
 https://webconfig.scc-f15d080e-0f6f-4df4-b27a-1ad114ddb0a9.sc.genetec.cloud
 https://webconfig.scc-f285da6c-167a-43d6-895e-d49ff8ff4b2b.sc.genetec.cloud
 https://webconfig.scc-fb4d3435-15b0-418d-92ff-2ad03d380c27.sc.genetec.cloud
+https://mobile.scc-5df52323-d527-4a2d-825e-1e200dbe22b8.sc.genetec.cloud
+https://mobile.scc-8ccc241e-7d33-4842-9cb2-6c643379aa5c.sc.genetec.cloud
+https://mobile.scc-9144373d-3d6f-4fd5-81b7-36ea816ddbe8.sc.genetec.cloud
+https://mobile.scc-b963f981-cf8b-455c-8a58-a2f9410678ea.sc.genetec.cloud
+https://mobile.scc-c98cda83-641f-4f11-9436-62e9329c3950.sc.genetec.cloud
+https://mobile.scc-dff2bf23-8750-49dd-b2e3-62ee86b84652.sc.genetec.cloud
+https://mobile.scc-f15d080e-0f6f-4df4-b27a-1ad114ddb0a9.sc.genetec.cloud
+https://mobile.scc-f285da6c-167a-43d6-895e-d49ff8ff4b2b.sc.genetec.cloud
