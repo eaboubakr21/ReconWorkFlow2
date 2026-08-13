@@ -2122,3 +2122,7 @@ http://signaling.westeu.video.genetec.cloud:8443
 http://signaling.westeu.video.genetec.cloud
 http://signaling.westeu.video.genetec.cloud:8080
 https://signaling.westeu.video.genetec.cloud
+http://signaling.eastus2.video.genetec.cloud
+http://signaling.eastus2.video.genetec.cloud:8080
+https://signaling.eastus2.video.genetec.cloud
+http://signaling.eastus2.video.genetec.cloud:8443
