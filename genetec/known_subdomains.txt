@@ -2118,3 +2118,7 @@ https://mobile.scc-c98cda83-641f-4f11-9436-62e9329c3950.sc.genetec.cloud
 https://mobile.scc-dff2bf23-8750-49dd-b2e3-62ee86b84652.sc.genetec.cloud
 https://mobile.scc-f15d080e-0f6f-4df4-b27a-1ad114ddb0a9.sc.genetec.cloud
 https://mobile.scc-f285da6c-167a-43d6-895e-d49ff8ff4b2b.sc.genetec.cloud
+http://signaling.westeu.video.genetec.cloud:8443
+http://signaling.westeu.video.genetec.cloud
+http://signaling.westeu.video.genetec.cloud:8080
+https://signaling.westeu.video.genetec.cloud
