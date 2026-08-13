@@ -370,3 +370,5 @@ https://spectroflows.ai-rsch.spectrocloud.com
 http://amd.spectrocloud.com:8080
 http://spectroflows.spectrocloud.com
 https://spectroflows.spectrocloud.com
+http://rc410.rc.spectrocloud.com
+https://rc410.rc.spectrocloud.com
