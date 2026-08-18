@@ -372,3 +372,9 @@ http://spectroflows.spectrocloud.com
 https://spectroflows.spectrocloud.com
 http://rc410.rc.spectrocloud.com
 https://rc410.rc.spectrocloud.com
+http://mural-gke.artur.palette-adv.spectrocloud.com
+https://mural-gke.artur.palette-adv.spectrocloud.com
+http://mural.artur.palette-adv.spectrocloud.com
+https://mural.artur.palette-adv.spectrocloud.com
+http://vulcan-staging.palette-adv.spectrocloud.com
+https://vulcan-staging.palette-adv.spectrocloud.com
