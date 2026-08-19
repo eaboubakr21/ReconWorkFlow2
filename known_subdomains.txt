@@ -378,3 +378,5 @@ http://mural.artur.palette-adv.spectrocloud.com
 https://mural.artur.palette-adv.spectrocloud.com
 http://vulcan-staging.palette-adv.spectrocloud.com
 https://vulcan-staging.palette-adv.spectrocloud.com
+http://o11y.ai-rsch.spectrocloud.com
+https://o11y.ai-rsch.spectrocloud.com
