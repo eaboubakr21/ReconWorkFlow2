@@ -2150,3 +2150,5 @@ http://signaling.centralkr.video.genetec.cloud:8443
 http://signaling.centralkr.video.genetec.cloud:8080
 http://signaling.centralkr.video.genetec.cloud
 https://signaling.centralkr.video.genetec.cloud
+http://coursewaredirectory.genetec.com
+https://coursewaredirectory.genetec.com
