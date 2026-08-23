@@ -382,3 +382,5 @@ http://o11y.ai-rsch.spectrocloud.com
 https://o11y.ai-rsch.spectrocloud.com
 http://metrics.ai-rsch.spectrocloud.com
 https://metrics.ai-rsch.spectrocloud.com
+http://api.rapidai.spectrocloud.com
+https://api.rapidai.spectrocloud.com
