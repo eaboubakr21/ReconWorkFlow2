@@ -2270,3 +2270,12 @@ http://www.westeu.sip.sipelia.genetec.cloud
 https://www.westeu.sip.sipelia.genetec.cloud
 http://www.southuk.sip.sipelia.genetec.cloud
 https://www.southuk.sip.sipelia.genetec.cloud
+http://mail.eastau.sip.sipelia.genetec.cloud
+https://mail.eastau.sip.sipelia.genetec.cloud
+https://mobile.scc-21046421-294e-4079-8be6-240f17285874.sc.genetec.cloud
+https://mobile.scc-2a58dc65-fc77-4eeb-99a9-9552d47be638.sc.genetec.cloud
+https://mobile.scc-2f2bd0e4-573f-4712-ac14-1b7c9e8d6667.sc.genetec.cloud
+https://mobile.scc-316b648b-8f8d-459a-a885-e4dda73c7a6a.sc.genetec.cloud
+https://mobile.scc-439d26b2-b31f-4b2d-8277-05365d57c0ce.sc.genetec.cloud
+https://mobile.scc-8c718db6-0ae2-4a54-89ea-a1080eef2554.sc.genetec.cloud
+https://mobile.scc-a97daa61-64b5-4847-ac2c-ff874483021e.sc.genetec.cloud
