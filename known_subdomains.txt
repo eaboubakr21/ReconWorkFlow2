@@ -384,3 +384,5 @@ http://metrics.ai-rsch.spectrocloud.com
 https://metrics.ai-rsch.spectrocloud.com
 http://api.rapidai.spectrocloud.com
 https://api.rapidai.spectrocloud.com
+https://tricorder.vulcan.spectrocloud.com
+http://tricorder.vulcan.spectrocloud.com
