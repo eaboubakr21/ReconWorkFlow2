@@ -422,3 +422,5 @@ http://www.stage.spectrocloud.com
 http://www.staging.gehc-ehl.spectrocloud.com
 https://www.stage.spectrocloud.com
 https://www.staging.gehc-ehl.spectrocloud.com
+http://mcp.hyperdrive.spectrocloud.com
+https://mcp.hyperdrive.spectrocloud.com
