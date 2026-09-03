@@ -424,3 +424,5 @@ https://www.stage.spectrocloud.com
 https://www.staging.gehc-ehl.spectrocloud.com
 http://mcp.hyperdrive.spectrocloud.com
 https://mcp.hyperdrive.spectrocloud.com
+https://mgmt-dev.spectrocloud.com
+http://system-demos.palette-adv.spectrocloud.com
