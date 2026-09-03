@@ -2284,3 +2284,4 @@ http://telemetrygateway.edge.genetec.cloud:8080
 http://telemetrygateway.edge.genetec.cloud:8443
 http://telemetrygateway.edge.genetec.cloud
 https://telemetrygateway.edge.genetec.cloud
+https://gcs-resources.genetec.com:8443
