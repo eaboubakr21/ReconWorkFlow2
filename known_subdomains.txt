@@ -426,3 +426,5 @@ http://mcp.hyperdrive.spectrocloud.com
 https://mcp.hyperdrive.spectrocloud.com
 https://mgmt-dev.spectrocloud.com
 http://system-demos.palette-adv.spectrocloud.com
+http://university.spectrocloud.com
+https://university.spectrocloud.com
