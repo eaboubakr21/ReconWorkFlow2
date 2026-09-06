@@ -432,3 +432,7 @@ http://tricorder.ai-rsch.spectrocloud.com
 https://tricorder.ai-rsch.spectrocloud.com
 http://hg-dnd-preview-poc.teams.spectrocloud.com
 https://hg-dnd-preview-poc.teams.spectrocloud.com
+http://mural-gke.artur.palette-adv.spectrocloud.com:9443
+http://mural.artur.palette-adv.spectrocloud.com:9443
+http://rtx5-tenant.palette-adv.spectrocloud.com:9443
+http://system-demos.palette-adv.spectrocloud.com:9443
