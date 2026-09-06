@@ -428,3 +428,5 @@ https://mgmt-dev.spectrocloud.com
 http://system-demos.palette-adv.spectrocloud.com
 http://university.spectrocloud.com
 https://university.spectrocloud.com
+http://tricorder.ai-rsch.spectrocloud.com
+https://tricorder.ai-rsch.spectrocloud.com
