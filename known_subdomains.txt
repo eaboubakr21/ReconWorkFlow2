@@ -430,3 +430,5 @@ http://university.spectrocloud.com
 https://university.spectrocloud.com
 http://tricorder.ai-rsch.spectrocloud.com
 https://tricorder.ai-rsch.spectrocloud.com
+http://hg-dnd-preview-poc.teams.spectrocloud.com
+https://hg-dnd-preview-poc.teams.spectrocloud.com
