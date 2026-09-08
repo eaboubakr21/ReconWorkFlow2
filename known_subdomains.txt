@@ -437,3 +437,4 @@ http://mural.artur.palette-adv.spectrocloud.com:9443
 http://rtx5-tenant.palette-adv.spectrocloud.com:9443
 http://system-demos.palette-adv.spectrocloud.com:9443
 https://mural.artur.palette-adv.spectrocloud.com:9443
+https://system-demos.palette-adv.spectrocloud.com:9443
