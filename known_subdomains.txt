@@ -441,3 +441,5 @@ https://system-demos.palette-adv.spectrocloud.com:9443
 https://rtx5-tenant.palette-adv.spectrocloud.com:9443
 https://mural-gke.artur.palette-adv.spectrocloud.com:9443
 http://fusion.registry.palette-devx.spectrocloud.com
+http://stage.spectroflows.spectrocloud.com
+https://stage.spectroflows.spectrocloud.com
