@@ -443,3 +443,9 @@ https://mural-gke.artur.palette-adv.spectrocloud.com:9443
 http://fusion.registry.palette-devx.spectrocloud.com
 http://stage.spectroflows.spectrocloud.com
 https://stage.spectroflows.spectrocloud.com
+http://mail.rc49.rc.spectrocloud.com
+https://mail.rc49.rc.spectrocloud.com
+http://palette-dev.spectrocloud.com
+https://palette-dev.spectrocloud.com
+http://www.rc49.rc.spectrocloud.com
+https://www.rc49.rc.spectrocloud.com
