@@ -449,3 +449,7 @@ http://palette-dev.spectrocloud.com
 https://palette-dev.spectrocloud.com
 http://www.rc49.rc.spectrocloud.com
 https://www.rc49.rc.spectrocloud.com
+http://grafana-new.mural-dev.palette-adv.spectrocloud.com
+https://grafana-new.mural-dev.palette-adv.spectrocloud.com
+http://prometheus-new.mural-dev.palette-adv.spectrocloud.com
+https://prometheus-new.mural-dev.palette-adv.spectrocloud.com
