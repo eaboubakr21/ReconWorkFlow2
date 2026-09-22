@@ -457,3 +457,5 @@ http://mail.eu.spectrocloud.com
 https://mail.eu.spectrocloud.com
 http://www.eu.spectrocloud.com
 https://www.eu.spectrocloud.com
+http://vault-artur.palette-adv.spectrocloud.com
+https://vault-artur.palette-adv.spectrocloud.com
