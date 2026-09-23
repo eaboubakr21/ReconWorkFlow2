@@ -473,3 +473,4 @@ http://amd.spectrocloud.com:8000
 http://as2.dev.spectrocloud.com
 https://as2.dev.spectrocloud.com
 https://mail.palette-dev.spectrocloud.com
+https://www.palette-dev.spectrocloud.com
