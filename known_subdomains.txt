@@ -459,3 +459,13 @@ http://www.eu.spectrocloud.com
 https://www.eu.spectrocloud.com
 http://vault-artur.palette-adv.spectrocloud.com
 https://vault-artur.palette-adv.spectrocloud.com
+http://grafana.mural-stage.palette-adv.spectrocloud.com
+https://grafana.mural-stage.palette-adv.spectrocloud.com
+http://mural-stage.palette-adv.spectrocloud.com
+https://mural-stage.palette-adv.spectrocloud.com
+http://prometheus.mural-stage.palette-adv.spectrocloud.com
+https://prometheus.mural-stage.palette-adv.spectrocloud.com
+http://vault.mural-dev.palette-adv.spectrocloud.com
+https://vault.mural-dev.palette-adv.spectrocloud.com
+http://zot.tommy.palette-adv.spectrocloud.com
+https://zot.tommy.palette-adv.spectrocloud.com
