@@ -2290,3 +2290,9 @@ https://eforms.genetec.com
 http://eforms.genetec.com:8443
 http://svdownloads.genetec.com
 https://svdownloads.genetec.com
+http://fleetstatus.edge.genetec.cloud
+http://fleetstatus.edge.genetec.cloud:8080
+https://fleetstatus.edge.genetec.cloud
+http://fleetstatus.edge.genetec.cloud:8443
+http://paybyplate.genetec.com:8080
+https://paybyplate.genetec.com:8443
