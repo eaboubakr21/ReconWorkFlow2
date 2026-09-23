@@ -472,3 +472,4 @@ https://zot.tommy.palette-adv.spectrocloud.com
 http://amd.spectrocloud.com:8000
 http://as2.dev.spectrocloud.com
 https://as2.dev.spectrocloud.com
+https://mail.palette-dev.spectrocloud.com
