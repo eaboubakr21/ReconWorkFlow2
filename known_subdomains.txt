@@ -469,3 +469,6 @@ http://vault.mural-dev.palette-adv.spectrocloud.com
 https://vault.mural-dev.palette-adv.spectrocloud.com
 http://zot.tommy.palette-adv.spectrocloud.com
 https://zot.tommy.palette-adv.spectrocloud.com
+http://amd.spectrocloud.com:8000
+http://as2.dev.spectrocloud.com
+https://as2.dev.spectrocloud.com
