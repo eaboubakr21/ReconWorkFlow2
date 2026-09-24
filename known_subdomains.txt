@@ -474,3 +474,7 @@ http://as2.dev.spectrocloud.com
 https://as2.dev.spectrocloud.com
 https://mail.palette-dev.spectrocloud.com
 https://www.palette-dev.spectrocloud.com
+http://api.hg-sh-795.teams.spectrocloud.com
+https://api.hg-sh-795.teams.spectrocloud.com
+http://hg-sh-795.teams.spectrocloud.com
+https://hg-sh-795.teams.spectrocloud.com
