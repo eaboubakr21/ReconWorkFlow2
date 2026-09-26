@@ -478,3 +478,9 @@ http://api.hg-sh-795.teams.spectrocloud.com
 https://api.hg-sh-795.teams.spectrocloud.com
 http://hg-sh-795.teams.spectrocloud.com
 https://hg-sh-795.teams.spectrocloud.com
+http://grafana-new.paitest-aws-lab2.palette-adv.spectrocloud.com
+https://grafana-new.paitest-aws-lab2.palette-adv.spectrocloud.com
+http://paitest-aws-lab2.palette-adv.spectrocloud.com
+https://paitest-aws-lab2.palette-adv.spectrocloud.com
+http://prometheus-new.paitest-aws-lab2.palette-adv.spectrocloud.com
+https://prometheus-new.paitest-aws-lab2.palette-adv.spectrocloud.com
