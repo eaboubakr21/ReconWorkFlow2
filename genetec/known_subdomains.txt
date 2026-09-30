@@ -2296,3 +2296,5 @@ https://fleetstatus.edge.genetec.cloud
 http://fleetstatus.edge.genetec.cloud:8443
 http://paybyplate.genetec.com:8080
 https://paybyplate.genetec.com:8443
+http://michel.ar.genetec.cloud
+https://michel.ar.genetec.cloud
