@@ -488,3 +488,11 @@ http://vault.mural-stage.palette-adv.spectrocloud.com
 https://vault.mural-stage.palette-adv.spectrocloud.com
 http://staging.university.spectrocloud.com
 https://staging.university.spectrocloud.com
+http://aws-paitest.palette-adv.spectrocloud.com
+https://aws-paitest.palette-adv.spectrocloud.com
+http://grafana.aws-paitest.palette-adv.spectrocloud.com
+https://grafana.aws-paitest.palette-adv.spectrocloud.com
+http://groove.spectrocloud.com
+https://groove.spectrocloud.com
+http://prometheus.aws-paitest.palette-adv.spectrocloud.com
+https://prometheus.aws-paitest.palette-adv.spectrocloud.com
