@@ -2298,3 +2298,12 @@ http://paybyplate.genetec.com:8080
 https://paybyplate.genetec.com:8443
 http://michel.ar.genetec.cloud
 https://michel.ar.genetec.cloud
+http://share.genetec.com
+https://share.genetec.com
+http://share.genetec.com:8443
+https://survey.genetec.com
+http://survey.genetec.com
+http://survey.genetec.com:8443
+https://tipsts.genetec.com
+http://tipsts.genetec.com
+http://tipsts.genetec.com:8443
