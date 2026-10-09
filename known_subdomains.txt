@@ -575,3 +575,5 @@ http://wildcard.staging.gehc-ehl.spectrocloud.com
 https://wildcard.staging.gehc-ehl.spectrocloud.com
 http://www.spock.spectrocloud.com
 https://www.spock.spectrocloud.com
+http://wildcard.proxy.console.vertex.spectrocloud.com
+https://wildcard.proxy.console.vertex.spectrocloud.com
