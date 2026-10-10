@@ -2307,3 +2307,5 @@ http://survey.genetec.com:8443
 https://tipsts.genetec.com
 http://tipsts.genetec.com
 http://tipsts.genetec.com:8443
+http://console.genetec.com
+https://console.genetec.com
