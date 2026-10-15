@@ -2309,3 +2309,9 @@ http://tipsts.genetec.com
 http://tipsts.genetec.com:8443
 http://console.genetec.com
 https://console.genetec.com
+http://ws-westeurope.prod.tealogic.devx.genetec.cloud
+http://ws-westeurope.prod.tealogic.devx.genetec.cloud:8080
+https://ws-westeurope.prod.tealogic.devx.genetec.cloud
+http://ws-eastus2.prod.tealogic.devx.genetec.cloud
+https://ws-eastus2.prod.tealogic.devx.genetec.cloud
+http://ws-westeurope.prod.tealogic.devx.genetec.cloud:8443
