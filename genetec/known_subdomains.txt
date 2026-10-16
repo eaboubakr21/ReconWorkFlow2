@@ -2315,3 +2315,9 @@ https://ws-westeurope.prod.tealogic.devx.genetec.cloud
 http://ws-eastus2.prod.tealogic.devx.genetec.cloud
 https://ws-eastus2.prod.tealogic.devx.genetec.cloud
 http://ws-westeurope.prod.tealogic.devx.genetec.cloud:8443
+https://mobile.scc-62bea870-ff2a-4a6e-8c9a-6456edb26ea7.sc.genetec.cloud
+https://scc-62bea870-ff2a-4a6e-8c9a-6456edb26ea7.sc.genetec.cloud
+https://webapp.scc-62bea870-ff2a-4a6e-8c9a-6456edb26ea7.sc.genetec.cloud
+https://webconfig.scc-62bea870-ff2a-4a6e-8c9a-6456edb26ea7.sc.genetec.cloud
+http://ws-eastus2.prod.tealogic.devx.genetec.cloud:8080
+http://ws-eastus2.prod.tealogic.devx.genetec.cloud:8443
