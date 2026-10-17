@@ -2321,3 +2321,7 @@ https://webapp.scc-62bea870-ff2a-4a6e-8c9a-6456edb26ea7.sc.genetec.cloud
 https://webconfig.scc-62bea870-ff2a-4a6e-8c9a-6456edb26ea7.sc.genetec.cloud
 http://ws-eastus2.prod.tealogic.devx.genetec.cloud:8080
 http://ws-eastus2.prod.tealogic.devx.genetec.cloud:8443
+https://mobile.scc-82fe2bb8-245c-4b4f-8617-de6ee56f7782.sc.genetec.cloud
+https://scc-82fe2bb8-245c-4b4f-8617-de6ee56f7782.sc.genetec.cloud
+https://webapp.scc-82fe2bb8-245c-4b4f-8617-de6ee56f7782.sc.genetec.cloud
+https://webconfig.scc-82fe2bb8-245c-4b4f-8617-de6ee56f7782.sc.genetec.cloud
