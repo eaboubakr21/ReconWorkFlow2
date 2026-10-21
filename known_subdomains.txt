@@ -577,3 +577,7 @@ http://www.spock.spectrocloud.com
 https://www.spock.spectrocloud.com
 http://wildcard.proxy.console.vertex.spectrocloud.com
 https://wildcard.proxy.console.vertex.spectrocloud.com
+http://keycloak.paletteai-custeng.palette-adv.spectrocloud.com
+https://keycloak.paletteai-custeng.palette-adv.spectrocloud.com
+http://paletteai-custeng.palette-adv.spectrocloud.com
+https://paletteai-custeng.palette-adv.spectrocloud.com
