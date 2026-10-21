@@ -581,3 +581,11 @@ http://keycloak.paletteai-custeng.palette-adv.spectrocloud.com
 https://keycloak.paletteai-custeng.palette-adv.spectrocloud.com
 http://paletteai-custeng.palette-adv.spectrocloud.com
 https://paletteai-custeng.palette-adv.spectrocloud.com
+http://default.paletteai-custeng.palette-adv.spectrocloud.com
+https://default.paletteai-custeng.palette-adv.spectrocloud.com
+http://galaxy.paletteai-custeng.palette-adv.spectrocloud.com
+https://galaxy.paletteai-custeng.palette-adv.spectrocloud.com
+http://monitoring.paletteai-custeng.palette-adv.spectrocloud.com
+https://monitoring.paletteai-custeng.palette-adv.spectrocloud.com
+http://prometheus.paletteai-custeng.palette-adv.spectrocloud.com
+https://prometheus.paletteai-custeng.palette-adv.spectrocloud.com
