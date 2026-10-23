@@ -594,3 +594,9 @@ http://keycloak.pai-custeng.palette-adv.spectrocloud.com
 https://keycloak.pai-custeng.palette-adv.spectrocloud.com
 http://prometheus.pai-custeng.palette-adv.spectrocloud.com
 https://prometheus.pai-custeng.palette-adv.spectrocloud.com
+http://default.pai-custeng.palette-adv.spectrocloud.com
+https://default.pai-custeng.palette-adv.spectrocloud.com
+http://monitoring.pai-custeng.palette-adv.spectrocloud.com
+https://monitoring.pai-custeng.palette-adv.spectrocloud.com
+http://pai-custeng.palette-adv.spectrocloud.com
+https://pai-custeng.palette-adv.spectrocloud.com
