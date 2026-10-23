@@ -589,3 +589,4 @@ http://monitoring.paletteai-custeng.palette-adv.spectrocloud.com
 https://monitoring.paletteai-custeng.palette-adv.spectrocloud.com
 http://prometheus.paletteai-custeng.palette-adv.spectrocloud.com
 https://prometheus.paletteai-custeng.palette-adv.spectrocloud.com
+https://as2.dev.spectrocloud.com:8443
