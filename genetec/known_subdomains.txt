@@ -2421,3 +2421,5 @@ https://mobile.scc-232d6931-c54f-4008-bac7-de01ea874ff5.sc.genetec.cloud
 https://scc-232d6931-c54f-4008-bac7-de01ea874ff5.sc.genetec.cloud
 https://webapp.scc-232d6931-c54f-4008-bac7-de01ea874ff5.sc.genetec.cloud
 https://webconfig.scc-232d6931-c54f-4008-bac7-de01ea874ff5.sc.genetec.cloud
+http://dmt.genetec.com
+https://dmt.genetec.com
