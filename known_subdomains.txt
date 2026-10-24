@@ -600,3 +600,7 @@ http://monitoring.pai-custeng.palette-adv.spectrocloud.com
 https://monitoring.pai-custeng.palette-adv.spectrocloud.com
 http://pai-custeng.palette-adv.spectrocloud.com
 https://pai-custeng.palette-adv.spectrocloud.com
+http://galaxy.pai-custeng.palette-adv.spectrocloud.com
+https://galaxy.pai-custeng.palette-adv.spectrocloud.com
+http://porphyrion-demos.palette-adv.spectrocloud.com
+https://porphyrion-demos.palette-adv.spectrocloud.com:9443
