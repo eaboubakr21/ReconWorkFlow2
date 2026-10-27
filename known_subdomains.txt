@@ -604,3 +604,5 @@ http://galaxy.pai-custeng.palette-adv.spectrocloud.com
 https://galaxy.pai-custeng.palette-adv.spectrocloud.com
 http://porphyrion-demos.palette-adv.spectrocloud.com
 https://porphyrion-demos.palette-adv.spectrocloud.com:9443
+http://mail.palette-dev.spectrocloud.com
+http://www.palette-dev.spectrocloud.com
