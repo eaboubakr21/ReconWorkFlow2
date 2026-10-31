@@ -606,3 +606,6 @@ http://porphyrion-demos.palette-adv.spectrocloud.com
 https://porphyrion-demos.palette-adv.spectrocloud.com:9443
 http://mail.palette-dev.spectrocloud.com
 http://www.palette-dev.spectrocloud.com
+http://default-demos.palette-adv.spectrocloud.com
+https://default-demos.palette-adv.spectrocloud.com
+https://default-demos.palette-adv.spectrocloud.com:9443
