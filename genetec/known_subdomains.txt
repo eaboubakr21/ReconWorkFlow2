@@ -2427,3 +2427,5 @@ http://centralindia.datainsights.genetec.cloud
 https://centralindia.datainsights.genetec.cloud
 http://centralindia.datainsights.genetec.cloud:8080
 http://centralindia.datainsights.genetec.cloud:8443
+http://help.securitycentersaas.genetec.cloud:8080
+https://help.securitycentersaas.genetec.cloud:8443
